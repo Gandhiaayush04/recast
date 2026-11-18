@@ -1,0 +1,59 @@
+name: Recast
+options:
+  bundleIdPrefix: com.gandhiaayush
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+    CODE_SIGN_IDENTITY: "-"
+    CODE_SIGN_STYLE: Manual
+    DEVELOPMENT_TEAM: ""
+    ENABLE_HARDENED_RUNTIME: NO
+    ENABLE_APP_SANDBOX: NO
+    ENABLE_USER_SCRIPT_SANDBOXING: NO
+    ARCHS: arm64
+    # Keep this Mac's file paths out of the shipped app
+    DEPLOYMENT_POSTPROCESSING: YES
+    STRIP_INSTALLED_PRODUCT: YES
+    STRIP_STYLE: all
+    COPY_PHASE_STRIP: YES
+    DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
+    OTHER_SWIFT_FLAGS: "-enable-upcoming-feature ConciseMagicFile -debug-prefix-map $(SRCROOT)=."
+targets:
+  Recast:
+    type: application
+    platform: macOS
+    sources:
+      - path: Recast
+    info:
+      path: Recast/Info.plist
+      properties:
+        CFBundleDisplayName: Recast
+        CFBundleName: Recast
+        CFBundleIconName: AppIcon
+        LSApplicationCategoryType: public.app-category.utilities
+        LSMinimumSystemVersion: "14.0"
+        NSHumanReadableCopyright: "MIT License. Copyright (c) 2026 Aayush Gandhi"
+        # Lets files be dropped on the Dock icon / opened with Recast without
+        # making Recast the default app for anything.
+        CFBundleDocumentTypes:
+          - CFBundleTypeName: Any File
+            CFBundleTypeRole: Viewer
+            LSHandlerRank: None
+            LSItemContentTypes:
+              - public.data
+              - public.content
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.gandhiaayush.recast
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        CODE_SIGN_ENTITLEMENTS: ""
+    postCompileScripts:
+      - name: Embed Python engine
+        basedOnDependencyAnalysis: false
+        script: |
+          "${PROJECT_DIR}/scripts/embed_engine.sh"

@@ -1,0 +1,30 @@
+# build output and Recast's private Python (downloaded by setup step 2)
+build/
+app/Recast.xcodeproj/
+*.tgz
+test-files/
+
+# logs written by the setup scripts
+setup-log*.txt
+build-log.txt
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+engine/tests/fixtures/
+
+# macOS
+.DS_Store
+demo/
+shot-*.command
+shot-log.txt
+diag*
+publish-log.txt
+update-log.txt
+
+# internal notes and personal publishing scripts (kept locally, not public)
+PROJECT.md
+engine/CONVERTER_SPEC.md
+4-publish-github.command
+5-update-github.command
