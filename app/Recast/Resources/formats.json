@@ -1,0 +1,313 @@
+{
+ "aliases": {
+  "aif": "wav",
+  "aiff": "wav",
+  "heif": "heic",
+  "jpe": "jpg",
+  "jpeg": "jpg",
+  "m4v": "mp4",
+  "md": "txt",
+  "oga": "ogg",
+  "opus": "ogg",
+  "qt": "mov",
+  "text": "txt",
+  "tif": "tiff"
+ },
+ "groups": {
+  "audio": [
+   "mp3",
+   "wav",
+   "m4a",
+   "aac",
+   "flac",
+   "ogg"
+  ],
+  "doc_sheet": [
+   "xlsx",
+   "ods",
+   "csv"
+  ],
+  "doc_slides": [
+   "pptx",
+   "odp"
+  ],
+  "doc_text": [
+   "docx",
+   "odt",
+   "rtf",
+   "txt"
+  ],
+  "image": [
+   "jpg",
+   "png",
+   "heic",
+   "webp",
+   "tiff",
+   "bmp",
+   "gif"
+  ],
+  "pdf": [
+   "pdf"
+  ],
+  "video": [
+   "mp4",
+   "mov",
+   "mkv",
+   "webm",
+   "avi"
+  ]
+ },
+ "labels": {
+  "aac": "AAC",
+  "avi": "AVI",
+  "bmp": "BMP",
+  "csv": "CSV",
+  "docx": "DOCX",
+  "flac": "FLAC",
+  "gif": "GIF",
+  "heic": "HEIC",
+  "jpg": "JPG",
+  "m4a": "M4A",
+  "mkv": "MKV",
+  "mov": "MOV",
+  "mp3": "MP3",
+  "mp4": "MP4",
+  "odp": "ODP",
+  "ods": "ODS",
+  "odt": "ODT",
+  "ogg": "OGG",
+  "pdf": "PDF",
+  "png": "PNG",
+  "pptx": "PPTX",
+  "rtf": "RTF",
+  "tiff": "TIFF",
+  "txt": "TXT",
+  "wav": "WAV",
+  "webm": "WEBM",
+  "webp": "WEBP",
+  "xlsx": "XLSX"
+ },
+ "targets": {
+  "aac": [
+   "mp3",
+   "wav",
+   "m4a",
+   "flac",
+   "ogg"
+  ],
+  "avi": [
+   "mp4",
+   "mov",
+   "mkv",
+   "webm",
+   "gif",
+   "mp3",
+   "wav",
+   "m4a",
+   "aac",
+   "flac",
+   "ogg"
+  ],
+  "bmp": [
+   "jpg",
+   "png",
+   "heic",
+   "webp",
+   "tiff",
+   "gif",
+   "pdf"
+  ],
+  "csv": [
+   "xlsx",
+   "ods",
+   "pdf"
+  ],
+  "docx": [
+   "odt",
+   "rtf",
+   "txt",
+   "pdf"
+  ],
+  "flac": [
+   "mp3",
+   "wav",
+   "m4a",
+   "aac",
+   "ogg"
+  ],
+  "gif": [
+   "jpg",
+   "png",
+   "heic",
+   "webp",
+   "tiff",
+   "bmp",
+   "pdf"
+  ],
+  "heic": [
+   "jpg",
+   "png",
+   "webp",
+   "tiff",
+   "bmp",
+   "gif",
+   "pdf"
+  ],
+  "jpg": [
+   "png",
+   "heic",
+   "webp",
+   "tiff",
+   "bmp",
+   "gif",
+   "pdf"
+  ],
+  "m4a": [
+   "mp3",
+   "wav",
+   "aac",
+   "flac",
+   "ogg"
+  ],
+  "mkv": [
+   "mp4",
+   "mov",
+   "webm",
+   "avi",
+   "gif",
+   "mp3",
+   "wav",
+   "m4a",
+   "aac",
+   "flac",
+   "ogg"
+  ],
+  "mov": [
+   "mp4",
+   "mkv",
+   "webm",
+   "avi",
+   "gif",
+   "mp3",
+   "wav",
+   "m4a",
+   "aac",
+   "flac",
+   "ogg"
+  ],
+  "mp3": [
+   "wav",
+   "m4a",
+   "aac",
+   "flac",
+   "ogg"
+  ],
+  "mp4": [
+   "mov",
+   "mkv",
+   "webm",
+   "avi",
+   "gif",
+   "mp3",
+   "wav",
+   "m4a",
+   "aac",
+   "flac",
+   "ogg"
+  ],
+  "odp": [
+   "pptx",
+   "pdf"
+  ],
+  "ods": [
+   "xlsx",
+   "csv",
+   "pdf"
+  ],
+  "odt": [
+   "docx",
+   "rtf",
+   "txt",
+   "pdf"
+  ],
+  "ogg": [
+   "mp3",
+   "wav",
+   "m4a",
+   "aac",
+   "flac"
+  ],
+  "pdf": [
+   "png",
+   "jpg"
+  ],
+  "png": [
+   "jpg",
+   "heic",
+   "webp",
+   "tiff",
+   "bmp",
+   "gif",
+   "pdf"
+  ],
+  "pptx": [
+   "odp",
+   "pdf"
+  ],
+  "rtf": [
+   "docx",
+   "odt",
+   "txt",
+   "pdf"
+  ],
+  "tiff": [
+   "jpg",
+   "png",
+   "heic",
+   "webp",
+   "bmp",
+   "gif",
+   "pdf"
+  ],
+  "txt": [
+   "docx",
+   "odt",
+   "rtf",
+   "pdf"
+  ],
+  "wav": [
+   "mp3",
+   "m4a",
+   "aac",
+   "flac",
+   "ogg"
+  ],
+  "webm": [
+   "mp4",
+   "mov",
+   "mkv",
+   "avi",
+   "gif",
+   "mp3",
+   "wav",
+   "m4a",
+   "aac",
+   "flac",
+   "ogg"
+  ],
+  "webp": [
+   "jpg",
+   "png",
+   "heic",
+   "tiff",
+   "bmp",
+   "gif",
+   "pdf"
+  ],
+  "xlsx": [
+   "ods",
+   "csv",
+   "pdf"
+  ]
+ }
+}

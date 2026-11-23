@@ -1,0 +1,7586 @@
+[
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [],
+   "mixed_no_common": false,
+   "targets": [],
+   "unsupported_files": [
+    "/x/noext"
+   ]
+  },
+  "files": [
+   "/x/noext"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.aac"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.aif"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.aiff"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp4",
+     "label": "MP4"
+    },
+    {
+     "ext": "mov",
+     "label": "MOV"
+    },
+    {
+     "ext": "mkv",
+     "label": "MKV"
+    },
+    {
+     "ext": "webm",
+     "label": "WEBM"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.avi"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.bmp"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "xlsx",
+     "label": "XLSX"
+    },
+    {
+     "ext": "ods",
+     "label": "ODS"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.csv"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_text"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "odt",
+     "label": "ODT"
+    },
+    {
+     "ext": "rtf",
+     "label": "RTF"
+    },
+    {
+     "ext": "txt",
+     "label": "TXT"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.docx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.flac"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.gif"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.heic"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.heif"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.jpe"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.jpeg"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.jpg"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.m4a"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mov",
+     "label": "MOV"
+    },
+    {
+     "ext": "mkv",
+     "label": "MKV"
+    },
+    {
+     "ext": "webm",
+     "label": "WEBM"
+    },
+    {
+     "ext": "avi",
+     "label": "AVI"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.m4v"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_text"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "docx",
+     "label": "DOCX"
+    },
+    {
+     "ext": "odt",
+     "label": "ODT"
+    },
+    {
+     "ext": "rtf",
+     "label": "RTF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.md"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp4",
+     "label": "MP4"
+    },
+    {
+     "ext": "mov",
+     "label": "MOV"
+    },
+    {
+     "ext": "webm",
+     "label": "WEBM"
+    },
+    {
+     "ext": "avi",
+     "label": "AVI"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.mkv"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp4",
+     "label": "MP4"
+    },
+    {
+     "ext": "mkv",
+     "label": "MKV"
+    },
+    {
+     "ext": "webm",
+     "label": "WEBM"
+    },
+    {
+     "ext": "avi",
+     "label": "AVI"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.mov"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.mp3"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mov",
+     "label": "MOV"
+    },
+    {
+     "ext": "mkv",
+     "label": "MKV"
+    },
+    {
+     "ext": "webm",
+     "label": "WEBM"
+    },
+    {
+     "ext": "avi",
+     "label": "AVI"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.mp4"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_slides"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pptx",
+     "label": "PPTX"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.odp"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "xlsx",
+     "label": "XLSX"
+    },
+    {
+     "ext": "csv",
+     "label": "CSV"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.ods"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_text"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "docx",
+     "label": "DOCX"
+    },
+    {
+     "ext": "rtf",
+     "label": "RTF"
+    },
+    {
+     "ext": "txt",
+     "label": "TXT"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.odt"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.oga"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.ogg"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.opus"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "pdf"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.pdf"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.png"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_slides"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "odp",
+     "label": "ODP"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.pptx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp4",
+     "label": "MP4"
+    },
+    {
+     "ext": "mkv",
+     "label": "MKV"
+    },
+    {
+     "ext": "webm",
+     "label": "WEBM"
+    },
+    {
+     "ext": "avi",
+     "label": "AVI"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.qt"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_text"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "docx",
+     "label": "DOCX"
+    },
+    {
+     "ext": "odt",
+     "label": "ODT"
+    },
+    {
+     "ext": "txt",
+     "label": "TXT"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.rtf"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_text"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "docx",
+     "label": "DOCX"
+    },
+    {
+     "ext": "odt",
+     "label": "ODT"
+    },
+    {
+     "ext": "rtf",
+     "label": "RTF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.text"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.tif"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.tiff"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_text"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "docx",
+     "label": "DOCX"
+    },
+    {
+     "ext": "odt",
+     "label": "ODT"
+    },
+    {
+     "ext": "rtf",
+     "label": "RTF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.txt"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.wav"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp4",
+     "label": "MP4"
+    },
+    {
+     "ext": "mov",
+     "label": "MOV"
+    },
+    {
+     "ext": "mkv",
+     "label": "MKV"
+    },
+    {
+     "ext": "avi",
+     "label": "AVI"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.webm"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.webp"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "ods",
+     "label": "ODS"
+    },
+    {
+     "ext": "csv",
+     "label": "CSV"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/a.xlsx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [],
+   "mixed_no_common": false,
+   "targets": [],
+   "unsupported_files": [
+    "/x/a.xyz"
+   ]
+  },
+  "files": [
+   "/x/a.xyz"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/UPPER.JPG"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/Photo.HEIC"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [],
+   "mixed_no_common": false,
+   "targets": [],
+   "unsupported_files": [
+    "/x/.hidden"
+   ]
+  },
+  "files": [
+   "/x/.hidden"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [],
+   "mixed_no_common": false,
+   "targets": [],
+   "unsupported_files": [
+    "/x/archive.tar.gz"
+   ]
+  },
+  "files": [
+   "/x/archive.tar.gz"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": true,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.jpg",
+   "/x/2.jpg"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": true,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    },
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.jpg",
+   "/x/2.png"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": true,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    },
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.jpg",
+   "/x/2.heic"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": true,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    },
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.jpg",
+   "/x/2.tif"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "gif",
+     "label": "GIF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.jpg",
+   "/x/2.mp4"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "gif",
+     "label": "GIF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.jpg",
+   "/x/2.m4v"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "gif",
+     "label": "GIF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.jpg",
+   "/x/2.mov"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "image"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.jpg",
+   "/x/2.mp3"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "image"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.jpg",
+   "/x/2.flac"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_text",
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.jpg",
+   "/x/2.docx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.jpg",
+   "/x/2.xlsx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.jpg",
+   "/x/2.csv"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "pdf"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    },
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.jpg",
+   "/x/2.pdf"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": [
+    "/x/2.xyz"
+   ]
+  },
+  "files": [
+   "/x/1.jpg",
+   "/x/2.xyz"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": true,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    },
+    {
+     "ext": "png",
+     "label": "PNG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.png",
+   "/x/2.jpg"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": true,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.png",
+   "/x/2.png"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": true,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    },
+    {
+     "ext": "png",
+     "label": "PNG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.png",
+   "/x/2.heic"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": true,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    },
+    {
+     "ext": "png",
+     "label": "PNG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.png",
+   "/x/2.tif"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "gif",
+     "label": "GIF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.png",
+   "/x/2.mp4"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "gif",
+     "label": "GIF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.png",
+   "/x/2.m4v"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "gif",
+     "label": "GIF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.png",
+   "/x/2.mov"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "image"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.png",
+   "/x/2.mp3"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "image"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.png",
+   "/x/2.flac"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_text",
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.png",
+   "/x/2.docx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.png",
+   "/x/2.xlsx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.png",
+   "/x/2.csv"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "pdf"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    },
+    {
+     "ext": "png",
+     "label": "PNG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.png",
+   "/x/2.pdf"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": [
+    "/x/2.xyz"
+   ]
+  },
+  "files": [
+   "/x/1.png",
+   "/x/2.xyz"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": true,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.heic",
+   "/x/2.jpg"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": true,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.heic",
+   "/x/2.png"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": true,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.heic",
+   "/x/2.heic"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": true,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.heic",
+   "/x/2.tif"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "gif",
+     "label": "GIF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.heic",
+   "/x/2.mp4"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "gif",
+     "label": "GIF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.heic",
+   "/x/2.m4v"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "gif",
+     "label": "GIF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.heic",
+   "/x/2.mov"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "image"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.heic",
+   "/x/2.mp3"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "image"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.heic",
+   "/x/2.flac"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_text",
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.heic",
+   "/x/2.docx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.heic",
+   "/x/2.xlsx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.heic",
+   "/x/2.csv"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "pdf"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.heic",
+   "/x/2.pdf"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": [
+    "/x/2.xyz"
+   ]
+  },
+  "files": [
+   "/x/1.heic",
+   "/x/2.xyz"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": true,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.tif",
+   "/x/2.jpg"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": true,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.tif",
+   "/x/2.png"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": true,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.tif",
+   "/x/2.heic"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": true,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.tif",
+   "/x/2.tif"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "gif",
+     "label": "GIF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.tif",
+   "/x/2.mp4"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "gif",
+     "label": "GIF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.tif",
+   "/x/2.m4v"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "gif",
+     "label": "GIF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.tif",
+   "/x/2.mov"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "image"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.tif",
+   "/x/2.mp3"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "image"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.tif",
+   "/x/2.flac"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_text",
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.tif",
+   "/x/2.docx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.tif",
+   "/x/2.xlsx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.tif",
+   "/x/2.csv"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "pdf"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.tif",
+   "/x/2.pdf"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": [
+    "/x/2.xyz"
+   ]
+  },
+  "files": [
+   "/x/1.tif",
+   "/x/2.xyz"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "gif",
+     "label": "GIF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mp4",
+   "/x/2.jpg"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "gif",
+     "label": "GIF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mp4",
+   "/x/2.png"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "gif",
+     "label": "GIF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mp4",
+   "/x/2.heic"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "gif",
+     "label": "GIF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mp4",
+   "/x/2.tif"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mov",
+     "label": "MOV"
+    },
+    {
+     "ext": "mkv",
+     "label": "MKV"
+    },
+    {
+     "ext": "webm",
+     "label": "WEBM"
+    },
+    {
+     "ext": "avi",
+     "label": "AVI"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mp4",
+   "/x/2.mp4"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mov",
+     "label": "MOV"
+    },
+    {
+     "ext": "mkv",
+     "label": "MKV"
+    },
+    {
+     "ext": "webm",
+     "label": "WEBM"
+    },
+    {
+     "ext": "avi",
+     "label": "AVI"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mp4",
+   "/x/2.m4v"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mov",
+     "label": "MOV"
+    },
+    {
+     "ext": "mkv",
+     "label": "MKV"
+    },
+    {
+     "ext": "webm",
+     "label": "WEBM"
+    },
+    {
+     "ext": "avi",
+     "label": "AVI"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    },
+    {
+     "ext": "mp4",
+     "label": "MP4"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mp4",
+   "/x/2.mov"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mp4",
+   "/x/2.mp3"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mp4",
+   "/x/2.flac"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_text",
+    "video"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mp4",
+   "/x/2.docx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "video"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mp4",
+   "/x/2.xlsx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "video"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mp4",
+   "/x/2.csv"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "pdf",
+    "video"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mp4",
+   "/x/2.pdf"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mov",
+     "label": "MOV"
+    },
+    {
+     "ext": "mkv",
+     "label": "MKV"
+    },
+    {
+     "ext": "webm",
+     "label": "WEBM"
+    },
+    {
+     "ext": "avi",
+     "label": "AVI"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": [
+    "/x/2.xyz"
+   ]
+  },
+  "files": [
+   "/x/1.mp4",
+   "/x/2.xyz"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "gif",
+     "label": "GIF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.m4v",
+   "/x/2.jpg"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "gif",
+     "label": "GIF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.m4v",
+   "/x/2.png"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "gif",
+     "label": "GIF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.m4v",
+   "/x/2.heic"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "gif",
+     "label": "GIF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.m4v",
+   "/x/2.tif"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mov",
+     "label": "MOV"
+    },
+    {
+     "ext": "mkv",
+     "label": "MKV"
+    },
+    {
+     "ext": "webm",
+     "label": "WEBM"
+    },
+    {
+     "ext": "avi",
+     "label": "AVI"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.m4v",
+   "/x/2.mp4"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mov",
+     "label": "MOV"
+    },
+    {
+     "ext": "mkv",
+     "label": "MKV"
+    },
+    {
+     "ext": "webm",
+     "label": "WEBM"
+    },
+    {
+     "ext": "avi",
+     "label": "AVI"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.m4v",
+   "/x/2.m4v"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mov",
+     "label": "MOV"
+    },
+    {
+     "ext": "mkv",
+     "label": "MKV"
+    },
+    {
+     "ext": "webm",
+     "label": "WEBM"
+    },
+    {
+     "ext": "avi",
+     "label": "AVI"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    },
+    {
+     "ext": "mp4",
+     "label": "MP4"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.m4v",
+   "/x/2.mov"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.m4v",
+   "/x/2.mp3"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.m4v",
+   "/x/2.flac"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_text",
+    "video"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.m4v",
+   "/x/2.docx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "video"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.m4v",
+   "/x/2.xlsx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "video"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.m4v",
+   "/x/2.csv"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "pdf",
+    "video"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.m4v",
+   "/x/2.pdf"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mov",
+     "label": "MOV"
+    },
+    {
+     "ext": "mkv",
+     "label": "MKV"
+    },
+    {
+     "ext": "webm",
+     "label": "WEBM"
+    },
+    {
+     "ext": "avi",
+     "label": "AVI"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": [
+    "/x/2.xyz"
+   ]
+  },
+  "files": [
+   "/x/1.m4v",
+   "/x/2.xyz"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "gif",
+     "label": "GIF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mov",
+   "/x/2.jpg"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "gif",
+     "label": "GIF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mov",
+   "/x/2.png"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "gif",
+     "label": "GIF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mov",
+   "/x/2.heic"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "gif",
+     "label": "GIF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mov",
+   "/x/2.tif"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp4",
+     "label": "MP4"
+    },
+    {
+     "ext": "mkv",
+     "label": "MKV"
+    },
+    {
+     "ext": "webm",
+     "label": "WEBM"
+    },
+    {
+     "ext": "avi",
+     "label": "AVI"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    },
+    {
+     "ext": "mov",
+     "label": "MOV"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mov",
+   "/x/2.mp4"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp4",
+     "label": "MP4"
+    },
+    {
+     "ext": "mkv",
+     "label": "MKV"
+    },
+    {
+     "ext": "webm",
+     "label": "WEBM"
+    },
+    {
+     "ext": "avi",
+     "label": "AVI"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    },
+    {
+     "ext": "mov",
+     "label": "MOV"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mov",
+   "/x/2.m4v"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp4",
+     "label": "MP4"
+    },
+    {
+     "ext": "mkv",
+     "label": "MKV"
+    },
+    {
+     "ext": "webm",
+     "label": "WEBM"
+    },
+    {
+     "ext": "avi",
+     "label": "AVI"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mov",
+   "/x/2.mov"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mov",
+   "/x/2.mp3"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mov",
+   "/x/2.flac"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_text",
+    "video"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mov",
+   "/x/2.docx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "video"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mov",
+   "/x/2.xlsx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "video"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mov",
+   "/x/2.csv"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "pdf",
+    "video"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mov",
+   "/x/2.pdf"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp4",
+     "label": "MP4"
+    },
+    {
+     "ext": "mkv",
+     "label": "MKV"
+    },
+    {
+     "ext": "webm",
+     "label": "WEBM"
+    },
+    {
+     "ext": "avi",
+     "label": "AVI"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": [
+    "/x/2.xyz"
+   ]
+  },
+  "files": [
+   "/x/1.mov",
+   "/x/2.xyz"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "image"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mp3",
+   "/x/2.jpg"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "image"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mp3",
+   "/x/2.png"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "image"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mp3",
+   "/x/2.heic"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "image"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mp3",
+   "/x/2.tif"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    },
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mp3",
+   "/x/2.mp4"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    },
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mp3",
+   "/x/2.m4v"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    },
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mp3",
+   "/x/2.mov"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mp3",
+   "/x/2.mp3"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    },
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mp3",
+   "/x/2.flac"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "doc_text"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mp3",
+   "/x/2.docx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "doc_sheet"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mp3",
+   "/x/2.xlsx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "doc_sheet"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mp3",
+   "/x/2.csv"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "pdf"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mp3",
+   "/x/2.pdf"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": [
+    "/x/2.xyz"
+   ]
+  },
+  "files": [
+   "/x/1.mp3",
+   "/x/2.xyz"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "image"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.flac",
+   "/x/2.jpg"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "image"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.flac",
+   "/x/2.png"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "image"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.flac",
+   "/x/2.heic"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "image"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.flac",
+   "/x/2.tif"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.flac",
+   "/x/2.mp4"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.flac",
+   "/x/2.m4v"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.flac",
+   "/x/2.mov"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.flac",
+   "/x/2.mp3"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.flac",
+   "/x/2.flac"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "doc_text"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.flac",
+   "/x/2.docx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "doc_sheet"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.flac",
+   "/x/2.xlsx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "doc_sheet"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.flac",
+   "/x/2.csv"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "pdf"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.flac",
+   "/x/2.pdf"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": [
+    "/x/2.xyz"
+   ]
+  },
+  "files": [
+   "/x/1.flac",
+   "/x/2.xyz"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_text",
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.docx",
+   "/x/2.jpg"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_text",
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.docx",
+   "/x/2.png"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_text",
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.docx",
+   "/x/2.heic"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_text",
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.docx",
+   "/x/2.tif"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_text",
+    "video"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.docx",
+   "/x/2.mp4"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_text",
+    "video"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.docx",
+   "/x/2.m4v"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_text",
+    "video"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.docx",
+   "/x/2.mov"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "doc_text"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.docx",
+   "/x/2.mp3"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "doc_text"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.docx",
+   "/x/2.flac"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_text"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "odt",
+     "label": "ODT"
+    },
+    {
+     "ext": "rtf",
+     "label": "RTF"
+    },
+    {
+     "ext": "txt",
+     "label": "TXT"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.docx",
+   "/x/2.docx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "doc_text"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.docx",
+   "/x/2.xlsx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "doc_text"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.docx",
+   "/x/2.csv"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_text",
+    "pdf"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.docx",
+   "/x/2.pdf"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_text"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "odt",
+     "label": "ODT"
+    },
+    {
+     "ext": "rtf",
+     "label": "RTF"
+    },
+    {
+     "ext": "txt",
+     "label": "TXT"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": [
+    "/x/2.xyz"
+   ]
+  },
+  "files": [
+   "/x/1.docx",
+   "/x/2.xyz"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.xlsx",
+   "/x/2.jpg"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.xlsx",
+   "/x/2.png"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.xlsx",
+   "/x/2.heic"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.xlsx",
+   "/x/2.tif"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "video"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.xlsx",
+   "/x/2.mp4"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "video"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.xlsx",
+   "/x/2.m4v"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "video"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.xlsx",
+   "/x/2.mov"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "doc_sheet"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.xlsx",
+   "/x/2.mp3"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "doc_sheet"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.xlsx",
+   "/x/2.flac"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "doc_text"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.xlsx",
+   "/x/2.docx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "ods",
+     "label": "ODS"
+    },
+    {
+     "ext": "csv",
+     "label": "CSV"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.xlsx",
+   "/x/2.xlsx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "ods",
+     "label": "ODS"
+    },
+    {
+     "ext": "csv",
+     "label": "CSV"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    },
+    {
+     "ext": "xlsx",
+     "label": "XLSX"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.xlsx",
+   "/x/2.csv"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "pdf"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.xlsx",
+   "/x/2.pdf"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "ods",
+     "label": "ODS"
+    },
+    {
+     "ext": "csv",
+     "label": "CSV"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": [
+    "/x/2.xyz"
+   ]
+  },
+  "files": [
+   "/x/1.xlsx",
+   "/x/2.xyz"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.csv",
+   "/x/2.jpg"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.csv",
+   "/x/2.png"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.csv",
+   "/x/2.heic"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.csv",
+   "/x/2.tif"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "video"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.csv",
+   "/x/2.mp4"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "video"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.csv",
+   "/x/2.m4v"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "video"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.csv",
+   "/x/2.mov"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "doc_sheet"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.csv",
+   "/x/2.mp3"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "doc_sheet"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.csv",
+   "/x/2.flac"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "doc_text"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.csv",
+   "/x/2.docx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "xlsx",
+     "label": "XLSX"
+    },
+    {
+     "ext": "ods",
+     "label": "ODS"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    },
+    {
+     "ext": "csv",
+     "label": "CSV"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.csv",
+   "/x/2.xlsx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "xlsx",
+     "label": "XLSX"
+    },
+    {
+     "ext": "ods",
+     "label": "ODS"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.csv",
+   "/x/2.csv"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "pdf"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.csv",
+   "/x/2.pdf"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "xlsx",
+     "label": "XLSX"
+    },
+    {
+     "ext": "ods",
+     "label": "ODS"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": [
+    "/x/2.xyz"
+   ]
+  },
+  "files": [
+   "/x/1.csv",
+   "/x/2.xyz"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "pdf"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.pdf",
+   "/x/2.jpg"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "pdf"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.pdf",
+   "/x/2.png"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "pdf"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.pdf",
+   "/x/2.heic"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image",
+    "pdf"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.pdf",
+   "/x/2.tif"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "pdf",
+    "video"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.pdf",
+   "/x/2.mp4"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "pdf",
+    "video"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.pdf",
+   "/x/2.m4v"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "pdf",
+    "video"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.pdf",
+   "/x/2.mov"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "pdf"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.pdf",
+   "/x/2.mp3"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "pdf"
+   ],
+   "mixed_no_common": true,
+   "targets": [],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.pdf",
+   "/x/2.flac"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_text",
+    "pdf"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.pdf",
+   "/x/2.docx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "pdf"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.pdf",
+   "/x/2.xlsx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet",
+    "pdf"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.pdf",
+   "/x/2.csv"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "pdf"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.pdf",
+   "/x/2.pdf"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "pdf"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    }
+   ],
+   "unsupported_files": [
+    "/x/2.xyz"
+   ]
+  },
+  "files": [
+   "/x/1.pdf",
+   "/x/2.xyz"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": [
+    "/x/1.xyz"
+   ]
+  },
+  "files": [
+   "/x/1.xyz",
+   "/x/2.jpg"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": [
+    "/x/1.xyz"
+   ]
+  },
+  "files": [
+   "/x/1.xyz",
+   "/x/2.png"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": [
+    "/x/1.xyz"
+   ]
+  },
+  "files": [
+   "/x/1.xyz",
+   "/x/2.heic"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    },
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": [
+    "/x/1.xyz"
+   ]
+  },
+  "files": [
+   "/x/1.xyz",
+   "/x/2.tif"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mov",
+     "label": "MOV"
+    },
+    {
+     "ext": "mkv",
+     "label": "MKV"
+    },
+    {
+     "ext": "webm",
+     "label": "WEBM"
+    },
+    {
+     "ext": "avi",
+     "label": "AVI"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": [
+    "/x/1.xyz"
+   ]
+  },
+  "files": [
+   "/x/1.xyz",
+   "/x/2.mp4"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mov",
+     "label": "MOV"
+    },
+    {
+     "ext": "mkv",
+     "label": "MKV"
+    },
+    {
+     "ext": "webm",
+     "label": "WEBM"
+    },
+    {
+     "ext": "avi",
+     "label": "AVI"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": [
+    "/x/1.xyz"
+   ]
+  },
+  "files": [
+   "/x/1.xyz",
+   "/x/2.m4v"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp4",
+     "label": "MP4"
+    },
+    {
+     "ext": "mkv",
+     "label": "MKV"
+    },
+    {
+     "ext": "webm",
+     "label": "WEBM"
+    },
+    {
+     "ext": "avi",
+     "label": "AVI"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": [
+    "/x/1.xyz"
+   ]
+  },
+  "files": [
+   "/x/1.xyz",
+   "/x/2.mov"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": [
+    "/x/1.xyz"
+   ]
+  },
+  "files": [
+   "/x/1.xyz",
+   "/x/2.mp3"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": [
+    "/x/1.xyz"
+   ]
+  },
+  "files": [
+   "/x/1.xyz",
+   "/x/2.flac"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_text"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "odt",
+     "label": "ODT"
+    },
+    {
+     "ext": "rtf",
+     "label": "RTF"
+    },
+    {
+     "ext": "txt",
+     "label": "TXT"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": [
+    "/x/1.xyz"
+   ]
+  },
+  "files": [
+   "/x/1.xyz",
+   "/x/2.docx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "ods",
+     "label": "ODS"
+    },
+    {
+     "ext": "csv",
+     "label": "CSV"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": [
+    "/x/1.xyz"
+   ]
+  },
+  "files": [
+   "/x/1.xyz",
+   "/x/2.xlsx"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_sheet"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "xlsx",
+     "label": "XLSX"
+    },
+    {
+     "ext": "ods",
+     "label": "ODS"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": [
+    "/x/1.xyz"
+   ]
+  },
+  "files": [
+   "/x/1.xyz",
+   "/x/2.csv"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "pdf"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    }
+   ],
+   "unsupported_files": [
+    "/x/1.xyz"
+   ]
+  },
+  "files": [
+   "/x/1.xyz",
+   "/x/2.pdf"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [],
+   "mixed_no_common": false,
+   "targets": [],
+   "unsupported_files": [
+    "/x/1.xyz",
+    "/x/2.xyz"
+   ]
+  },
+  "files": [
+   "/x/1.xyz",
+   "/x/2.xyz"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": true,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    },
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.jpg",
+   "/x/2.png",
+   "/x/3.heif"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": true,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.jpg",
+   "/x/2.jpg",
+   "/x/3.jpg"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "audio",
+    "video"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "mp3",
+     "label": "MP3"
+    },
+    {
+     "ext": "wav",
+     "label": "WAV"
+    },
+    {
+     "ext": "m4a",
+     "label": "M4A"
+    },
+    {
+     "ext": "aac",
+     "label": "AAC"
+    },
+    {
+     "ext": "flac",
+     "label": "FLAC"
+    },
+    {
+     "ext": "ogg",
+     "label": "OGG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.mp4",
+   "/x/2.mkv",
+   "/x/3.mp3"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "pdf"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.pdf",
+   "/x/2.pdf"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": false,
+   "groups": [
+    "doc_text"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "odt",
+     "label": "ODT"
+    },
+    {
+     "ext": "rtf",
+     "label": "RTF"
+    },
+    {
+     "ext": "txt",
+     "label": "TXT"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    },
+    {
+     "ext": "docx",
+     "label": "DOCX"
+    }
+   ],
+   "unsupported_files": []
+  },
+  "files": [
+   "/x/1.docx",
+   "/x/2.odt",
+   "/x/3.txt"
+  ]
+ },
+ {
+  "expected": {
+   "can_combine_pdf": true,
+   "groups": [
+    "image"
+   ],
+   "mixed_no_common": false,
+   "targets": [
+    {
+     "ext": "png",
+     "label": "PNG"
+    },
+    {
+     "ext": "heic",
+     "label": "HEIC"
+    },
+    {
+     "ext": "webp",
+     "label": "WEBP"
+    },
+    {
+     "ext": "tiff",
+     "label": "TIFF"
+    },
+    {
+     "ext": "bmp",
+     "label": "BMP"
+    },
+    {
+     "ext": "gif",
+     "label": "GIF"
+    },
+    {
+     "ext": "pdf",
+     "label": "PDF"
+    },
+    {
+     "ext": "jpg",
+     "label": "JPG"
+    }
+   ],
+   "unsupported_files": [
+    "/x/2.xyz"
+   ]
+  },
+  "files": [
+   "/x/1.jpg",
+   "/x/2.xyz",
+   "/x/3.png"
+  ]
+ }
+]

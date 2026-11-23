@@ -42,13 +42,20 @@ enum FormatGroup: String, CaseIterable {
 }
 
 enum FormatInfo {
-    static let groups: [String: FormatGroup] = [
-        "jpg": .image, "png": .image, "heic": .image, "webp": .image, "tiff": .image, "bmp": .image, "gif": .image,
-        "mp4": .video, "mov": .video, "mkv": .video, "webm": .video, "avi": .video,
-        "mp3": .audio, "wav": .audio, "m4a": .audio, "aac": .audio, "flac": .audio, "ogg": .audio,
-        "docx": .document, "odt": .document, "rtf": .document, "txt": .document, "pptx": .document,
-        "odp": .document, "xlsx": .document, "ods": .document, "csv": .document, "pdf": .document,
-    ]
+    /// The menu section each format appears in (derived from the engine's own groups).
+    static let groups: [String: FormatGroup] = {
+        let m = FormatMatrix.shared
+        var out: [String: FormatGroup] = [:]
+        for e in m.allExtensions {
+            switch m.group(of: e) {
+            case "image": out[e] = .image
+            case "video": out[e] = .video
+            case "audio": out[e] = .audio
+            default: out[e] = .document
+            }
+        }
+        return out
+    }()
 
     /// A short note shown next to each format so people can pick without knowing the formats.
     static func hint(for ext: String, sourceIsPDF: Bool, sourceIsVideo: Bool) -> String {
@@ -143,7 +150,6 @@ enum Resolution: String, CaseIterable, Identifiable {
     var label: String { self == .original ? "Original" : rawValue }
 }
 
-private let videoExts: Set<String> = ["mp4", "mov", "mkv", "webm", "avi", "m4v", "qt"]
 private let multiPageExts: Set<String> = ["pdf", "xlsx", "ods"]
 
 @MainActor
@@ -152,7 +158,6 @@ final class AppModel: ObservableObject {
     @Published var targets: [TargetFormat] = []
     @Published var canCombinePDF = false
     @Published var mixedNoCommon = false
-    @Published var targetsLoading = false
     @Published var quality: Quality = .balanced
     @Published var resolution: Resolution = .original
     @Published var putInOneFolder = false
@@ -183,7 +188,7 @@ final class AppModel: ObservableObject {
     private var batchIDs: [Int: UUID] = [:]
     private var pendingAdds: [URL] = []
     private var cancelled = false
-    private var targetsGeneration = 0
+    private var listFile: URL?   // temp file holding the input paths of the current run
     private var pendingNoticeShown = false
 
     // MARK: output folder
@@ -246,19 +251,35 @@ final class AppModel: ObservableObject {
         self.engine = engine
         self.defaults = defaults
         self.outputFolderPath = defaults.string(forKey: Self.outputFolderKey) ?? ""
+        Self.sweepStaleListFiles()
+        if FormatMatrix.shared.isEmpty {
+            engineError = "Recast's format list is missing. Please reinstall Recast."
+        }
+    }
+
+    /// Removes file-list temp files left behind by a crash or force quit (older than an hour).
+    private static func sweepStaleListFiles() {
+        let fm = FileManager.default
+        let dir = fm.temporaryDirectory
+        for u in (try? fm.contentsOfDirectory(at: dir, includingPropertiesForKeys: [.contentModificationDateKey])) ?? [] {
+            guard u.lastPathComponent.hasPrefix("recast-files-"), u.pathExtension == "bin",
+                  let d = try? u.resourceValues(forKeys: [.contentModificationDateKey]).contentModificationDate,
+                  d < Date().addingTimeInterval(-3600) else { continue }
+            try? fm.removeItem(at: u)
+        }
     }
 
     // MARK: derived
 
-    var hasVideo: Bool { items.contains { videoExts.contains($0.ext) } }
-    var hasMultiPage: Bool { items.contains { multiPageExts.contains($0.ext) } }
-    var allImages: Bool { !convertible.isEmpty && convertible.allSatisfy { FormatInfo.groups[$0.ext == "jpeg" ? "jpg" : $0.ext] == .image } }
-    var sourceIsPDF: Bool { convertible.contains { $0.ext == "pdf" } }
+    var hasVideo: Bool { items.contains { FormatMatrix.shared.group(of: $0.ext) == "video" } }
+    var hasMultiPage: Bool { items.contains { multiPageExts.contains(FormatMatrix.shared.normalize($0.ext)) } }
+    var allImages: Bool { !convertible.isEmpty && convertible.allSatisfy { FormatMatrix.shared.group(of: $0.ext) == "image" } }
+    var sourceIsPDF: Bool { convertible.contains { FormatMatrix.shared.normalize($0.ext) == "pdf" } }
     var showsCombine: Bool { selectedTarget == "pdf" && canCombinePDF }
     var willCombine: Bool { showsCombine && combinePDF }
     var showsResolution: Bool { hasVideo && FormatInfo.groups[selectedTarget ?? ""] == .video }
     var showsFolderOption: Bool { hasMultiPage && ["png", "jpg", "csv"].contains(selectedTarget ?? "") }
-    var canConvert: Bool { !isWorking && !targetsLoading && selectedTarget != nil && !convertible.isEmpty }
+    var canConvert: Bool { !isWorking && selectedTarget != nil && !convertible.isEmpty }
 
     /// Window subtitle: a short summary of the list and the last run.
     var subtitle: String {
@@ -278,7 +299,7 @@ final class AppModel: ObservableObject {
         for id in selection { failureDetails[id] = nil }
         items.removeAll { selection.contains($0.id) }
         selection.removeAll()
-        Task { await refreshTargets() }
+        refreshTargets()
     }
 
     func convertSelectedTarget() {
@@ -341,7 +362,7 @@ final class AppModel: ObservableObject {
             added = true
         }
         notice = skippedFolders > 0 ? "Empty folders were skipped." : nil
-        if added { Task { await refreshTargets() } }
+        if added { refreshTargets() }
     }
 
     func remove(_ item: FileItem) {
@@ -349,7 +370,7 @@ final class AppModel: ObservableObject {
         failureDetails[item.id] = nil
         items.removeAll { $0.id == item.id }
         selection.remove(item.id)
-        Task { await refreshTargets() }
+        refreshTargets()
     }
 
     func clear() {
@@ -368,7 +389,6 @@ final class AppModel: ObservableObject {
         lastTarget = nil
         notice = nil
         wasStopped = false
-        targetsGeneration += 1
     }
 
     func move(from: IndexSet, to: Int) {
@@ -403,49 +423,36 @@ final class AppModel: ObservableObject {
         }
     }
 
-    func refreshTargets() async {
-        targetsGeneration += 1
-        let gen = targetsGeneration
+    /// Works out the "Convert to" choices from the file list. Pure lookup, so it's instant:
+    /// no engine process is started for it.
+    func refreshTargets() {
         guard !items.isEmpty else {
-            targets = []; canCombinePDF = false; mixedNoCommon = false; targetsLoading = false; selectedTarget = nil
+            targets = []; canCombinePDF = false; mixedNoCommon = false; selectedTarget = nil
             return
         }
-        targetsLoading = true
-        let paths = items.map(\.url.path)
-        do {
-            let r = try await engine.runOnce(["targets"] + paths, timeout: 30)
-            guard gen == targetsGeneration else { return }   // a newer request superseded this one
-            let t = r["targets"] as? [[String: Any]] ?? []
-            targets = t.compactMap {
-                guard let e = $0["ext"] as? String else { return nil }
-                return TargetFormat(ext: e, label: $0["label"] as? String ?? e.uppercased())
-            }
-            canCombinePDF = r["can_combine_pdf"] as? Bool ?? false
-            if !targets.contains(where: { $0.ext == selectedTarget }) { selectedTarget = targets.first?.ext }
-            mixedNoCommon = r["mixed_no_common"] as? Bool ?? false
-            let unsupported = Set(r["unsupported_files"] as? [String] ?? [])
-            for i in items.indices {
-                if unsupported.contains(items[i].url.path) { items[i].status = .unsupported }
-                else if items[i].status == .unsupported { items[i].status = .ready }
-            }
-            engineError = nil
-        } catch {
-            guard gen == targetsGeneration else { return }
-            engineError = error.localizedDescription
+        let r = FormatMatrix.shared.analyze(paths: items.map(\.url.path))
+        targets = r.targets
+        canCombinePDF = r.canCombinePDF
+        mixedNoCommon = r.mixedNoCommon
+        if !targets.contains(where: { $0.ext == selectedTarget }) { selectedTarget = targets.first?.ext }
+        let unsupported = Set(r.unsupportedPaths)
+        for i in items.indices {
+            if unsupported.contains(items[i].url.path) { items[i].status = .unsupported }
+            else if items[i].status == .unsupported { items[i].status = .ready }
         }
-        targetsLoading = false
     }
 
     // MARK: converting
 
     func convert(to target: String) {
         let files = convertible
-        guard !files.isEmpty, !isWorking, !targetsLoading, outputFolderIsUsable() else { return }
+        guard !files.isEmpty, !isWorking, outputFolderIsUsable() else { return }
         var args = ["convert", "--to", target, "--quality", quality.rawValue, "--resolution", resolution.rawValue,
                     "--out", outputFolder.path]
         if putInOneFolder { args.append("--folder") }
-        args += files.map(\.url.path)
         let ids = Dictionary(uniqueKeysWithValues: files.enumerated().map { ($0.offset, $0.element.id) })
+        guard let list = writeListFile(files) else { return }
+        args += ["--files-from", list.path]
         start(args, combining: false) {
             self.lastTarget = target
             self.batchIDs = ids
@@ -454,11 +461,33 @@ final class AppModel: ObservableObject {
 
     func combineIntoPDF() {
         let files = convertible
-        guard files.count > 1, !isWorking, !targetsLoading, outputFolderIsUsable() else { return }
-        start(["combine", "--quality", quality.rawValue, "--out", outputFolder.path] + files.map(\.url.path), combining: true) {
+        guard files.count > 1, !isWorking, outputFolderIsUsable() else { return }
+        guard let list = writeListFile(files) else { return }
+        start(["combine", "--quality", quality.rawValue, "--out", outputFolder.path, "--files-from", list.path], combining: true) {
             self.lastTarget = nil
             self.batchIDs = [:]
         }
+    }
+
+    /// Writes the input paths (NUL-separated) to a private temp file, so a huge drop never
+    /// hits the operating system's command-line length limit.
+    private func writeListFile(_ files: [FileItem]) -> URL? {
+        let url = FileManager.default.temporaryDirectory.appendingPathComponent("recast-files-\(UUID().uuidString).bin")
+        var data = Data()
+        for f in files { data.append(Data(f.url.path.utf8)); data.append(0) }
+        // created private (owner-only) from the start; it holds the user's file paths
+        guard FileManager.default.createFile(atPath: url.path, contents: data, attributes: [.posixPermissions: 0o600]) else {
+            engineError = "Recast couldn't prepare the file list."
+            DiagnosticsLog.shared.log("couldn't write the file list at \(url.path)")
+            return nil
+        }
+        listFile = url
+        return url
+    }
+
+    private func removeListFile() {
+        if let u = listFile { try? FileManager.default.removeItem(at: u) }
+        listFile = nil
     }
 
     private func start(_ args: [String], combining: Bool, prepare: () -> Void) {
@@ -472,8 +501,10 @@ final class AppModel: ObservableObject {
             })
         } catch {
             engineError = "Recast's conversion engine couldn't start."
+            removeListFile()
             return
         }
+        engineError = nil
         // only touch previous results once the engine is actually running
         resetResults()
         prepare()
@@ -482,6 +513,7 @@ final class AppModel: ObservableObject {
     }
 
     private func finish() {
+        removeListFile()
         let stderr = running?.stderrTail ?? ""
         var stopped = 0
         for i in items.indices {

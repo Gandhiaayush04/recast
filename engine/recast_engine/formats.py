@@ -92,3 +92,14 @@ def common_targets(exts: list[str]) -> list[str]:
 
 def is_video(ext: str) -> bool:
     return group_of(ext) == VIDEO
+
+
+def export_matrix() -> dict:
+    """The whole conversion matrix as plain data. The app ships this as formats.json
+    (app/Recast/Resources) so its menus can never disagree with the engine."""
+    return {
+        "groups": GROUPS,
+        "aliases": ALIASES,
+        "labels": LABELS,
+        "targets": {e: targets_for(e) for e in sorted(GROUP_OF)},
+    }

@@ -99,3 +99,43 @@ def test_convert_out_creates_missing_nested_folder(tmp_path, monkeypatch):
     out = tmp_path / "new" / "nested"
     assert cli.main(["convert", "--to", "jpg", "--out", str(out), str(src)]) == 0
     assert (out / "a.jpg").is_file()
+
+
+def test_files_from_reads_nul_separated_paths(tmp_path):
+    from PIL import Image
+    from recast_engine import cli
+    names = ["plain.png", "with space.png", "new\nline.png"]
+    for n in names:
+        Image.new("RGB", (4, 4), "blue").save(tmp_path / n)
+    listing = tmp_path / "list.bin"
+    listing.write_bytes("\0".join(str(tmp_path / n) for n in names).encode())
+    out = tmp_path / "out"
+    assert cli.main(["convert", "--to", "jpg", "--out", str(out), "--files-from", str(listing)]) == 0
+    assert sorted(p.name for p in out.iterdir()) == ["new\nline.jpg", "plain.jpg", "with space.jpg"]
+
+
+def test_files_from_handles_thousands_of_paths(tmp_path):
+    from recast_engine import cli
+    paths = [f"/nowhere/file-{i:05d}-{'x' * 60}.png" for i in range(5000)]
+    listing = tmp_path / "list.bin"
+    listing.write_bytes("\0".join(paths).encode())
+
+    class P:  # a stand-in parser: read_files only calls .error()
+        def error(self, msg): raise AssertionError(msg)
+
+    class A: files = []; files_from = str(listing)
+    assert cli.read_files(A, P()) == paths
+
+
+def test_convert_without_any_files_is_an_error():
+    import pytest
+    from recast_engine import cli
+    with pytest.raises(SystemExit):
+        cli.main(["convert", "--to", "jpg"])
+
+
+def test_unreadable_file_list_is_a_clean_error(tmp_path):
+    import pytest
+    from recast_engine import cli
+    with pytest.raises(SystemExit):
+        cli.main(["convert", "--to", "jpg", "--files-from", str(tmp_path / "missing.bin")])

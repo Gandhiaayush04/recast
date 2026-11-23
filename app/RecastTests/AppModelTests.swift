@@ -13,7 +13,6 @@ final class AppModelTests: XCTestCase {
         dir = FileManager.default.temporaryDirectory.appendingPathComponent("recast-tests-\(UUID().uuidString)")
         try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
         engine = FakeEngine()
-        engine.onceReply = { _ in targetsReply(["png", "pdf"]) }
         suiteName = "recast-tests-\(UUID().uuidString)"
         defaults = UserDefaults(suiteName: suiteName)!
         model = AppModel(engine: engine, defaults: defaults)
@@ -47,13 +46,24 @@ final class AppModelTests: XCTestCase {
 
     // MARK: adding files
 
-    func testAddingAFileAsksTheEngineForTargets() async throws {
+    func testAddingAFileComputesTargetsWithoutStartingTheEngine() async throws {
         model.add([try makeFile("a.jpg")])
-        await settle()
-        XCTAssertEqual(engine.runOnceCalls.count, 1)
-        XCTAssertEqual(engine.runOnceCalls.first?.first, "targets")
-        XCTAssertEqual(model.targets.map(\.ext), ["png", "pdf"])
+        XCTAssertTrue(engine.runOnceCalls.isEmpty)      // instant: no engine process
+        XCTAssertEqual(model.targets.map(\.ext), ["png", "heic", "webp", "tiff", "bmp", "gif", "pdf"])
         XCTAssertEqual(model.selectedTarget, "png")
+    }
+
+    func testAliasedExtensionsAreUnderstood() async throws {
+        model.add([try makeFile("a.heif"), try makeFile("b.tif")])
+        XCTAssertFalse(model.targets.isEmpty)
+        XCTAssertTrue(model.allImages)
+        XCTAssertTrue(model.canCombinePDF)
+    }
+
+    func testMixedFilesWithNothingInCommon() async throws {
+        model.add([try makeFile("a.jpg"), try makeFile("b.mp3")])
+        XCTAssertTrue(model.mixedNoCommon)
+        XCTAssertTrue(model.targets.isEmpty)
     }
 
     func testAddingTheSameFileTwiceDoesNotDuplicate() async throws {
@@ -82,21 +92,8 @@ final class AppModelTests: XCTestCase {
         XCTAssertTrue(model.items.isEmpty)
     }
 
-    func testStaleTargetsReplyIsIgnored() async throws {
-        // First request (1 file) is slow and says "png"; the second (2 files) is fast and says "pdf".
-        engine.onceReply = { args in targetsReply(args.count == 2 ? ["png"] : ["pdf"]) }
-        engine.onceDelay = { args in args.count == 2 ? 300_000_000 : 0 }
-        model.add([try makeFile("a.jpg")])
-        try await Task.sleep(nanoseconds: 20_000_000)
-        model.add([try makeFile("b.jpg")])
-        try await Task.sleep(nanoseconds: 600_000_000)
-        XCTAssertEqual(model.targets.map(\.ext), ["pdf"])
-    }
-
     func testUnsupportedFilesAreMarked() async throws {
-        let f = try makeFile("a.xyz")
-        engine.onceReply = { _ in targetsReply([], unsupported: [f.standardizedFileURL.path]) }
-        model.add([f]); await settle()
+        model.add([try makeFile("a.xyz")]); await settle()
         XCTAssertEqual(model.items.first?.status, .unsupported)
     }
 
@@ -166,7 +163,6 @@ final class AppModelTests: XCTestCase {
     // MARK: combine
 
     func testCombineMovesAllRowsTogether() async throws {
-        engine.onceReply = { _ in targetsReply(["pdf"], combine: true) }
         model.add([try makeFile("a.jpg"), try makeFile("b.jpg")]); await settle()
         model.combineIntoPDF()
         XCTAssertEqual(engine.streamCalls.last?.first, "combine")
@@ -178,7 +174,6 @@ final class AppModelTests: XCTestCase {
     }
 
     func testCombineFailureSetsErrorAndResetsRows() async throws {
-        engine.onceReply = { _ in targetsReply(["pdf"], combine: true) }
         model.add([try makeFile("a.jpg"), try makeFile("b.jpg")]); await settle()
         model.combineIntoPDF()
         engine.send(["event": "failed", "id": 0, "message": "Too big"])
@@ -194,6 +189,27 @@ final class AppModelTests: XCTestCase {
         XCTAssertTrue(model.items.isEmpty)
         XCTAssertTrue(model.targets.isEmpty)
         XCTAssertNil(model.selectedTarget)
+    }
+
+    // MARK: file list
+
+    func testFilePathsGoInAListFileNotOnTheCommandLine() async throws {
+        try await startRun(["a.jpg", "b.jpg"])
+        let args = engine.streamCalls.last ?? []
+        XCTAssertFalse(args.contains { $0.hasSuffix("a.jpg") })
+        let i = try XCTUnwrap(args.firstIndex(of: "--files-from"))
+        let list = URL(fileURLWithPath: args[i + 1])
+        let paths = try Data(contentsOf: list).split(separator: 0).map { String(decoding: $0, as: UTF8.self) }
+        XCTAssertEqual(paths.map { URL(fileURLWithPath: $0).lastPathComponent }, ["a.jpg", "b.jpg"])
+        engine.exit()
+        XCTAssertFalse(FileManager.default.fileExists(atPath: list.path))   // cleaned up
+    }
+
+    func testEngineErrorBannerClearsOnceARunStarts() async throws {
+        model.add([try makeFile("a.jpg")])
+        model.engineError = "Recast's conversion engine couldn't start."
+        model.convert(to: "png")
+        XCTAssertNil(model.engineError)
     }
 
     // MARK: output folder
@@ -215,7 +231,6 @@ final class AppModelTests: XCTestCase {
     }
 
     func testCombinePassesChosenFolderToEngine() async throws {
-        engine.onceReply = { _ in targetsReply(["pdf"], combine: true) }
         model.setOutputFolder(dir)
         model.add([try makeFile("a.jpg"), try makeFile("b.jpg")]); await settle()
         model.combineIntoPDF()
@@ -285,7 +300,6 @@ final class AppModelTests: XCTestCase {
     }
 
     func testCombineFailureKeepsDetailForCopying() async throws {
-        engine.onceReply = { _ in targetsReply(["pdf"], combine: true) }
         model.add([try makeFile("a.jpg"), try makeFile("b.jpg")]); await settle()
         model.combineIntoPDF()
         engine.send(["event": "failed", "id": 0, "message": "Boom", "detail": "OSError: disk", "trace": "tb"])

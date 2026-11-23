@@ -374,7 +374,6 @@ struct FormatPicker: View {
     }
 
     private var currentLabel: String {
-        if model.targetsLoading && model.targets.isEmpty { return "Checking…" }
         guard let t = model.selectedTarget,
               let f = model.targets.first(where: { $0.ext == t }) else { return "Choose" }
         return f.label
@@ -396,7 +395,7 @@ struct EngineBanner: View {
             if let err = model.engineError {
                 Text(err)
                 Spacer()
-                Button("Try Again") { Task { await model.checkEngines(); await model.refreshTargets() } }
+                Button("Try Again") { Task { await model.checkEngines(); model.refreshTargets() } }
             } else {
                 Text(text)
                 Spacer()

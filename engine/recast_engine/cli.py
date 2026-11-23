@@ -39,32 +39,60 @@ def cmd_status(_a) -> int:
     return 0
 
 
-def cmd_targets(a) -> int:
-    exts = [normalize_ext(Path(f).suffix) for f in a.files]
-    unknown = [f for f, e in zip(a.files, exts) if e not in GROUP_OF]
+def analyze_targets(files: list[str]) -> dict:
+    """Which formats a batch of files can be converted to (the app computes this itself
+    from formats.json; this is the reference answer its tests compare against)."""
+    exts = [normalize_ext(Path(f).suffix) for f in files]
+    unknown = [f for f, e in zip(files, exts) if e not in GROUP_OF]
     known = [e for e in exts if e in GROUP_OF]
     targets = common_targets(known) if known else []
     groups = sorted({group_of(e) for e in known})
-    emit({
+    return {
         "targets": [{"ext": t, "label": LABELS.get(t, t.upper())} for t in targets],
         "unsupported_files": unknown,
         "groups": groups,
         "can_combine_pdf": len(known) > 1 and all(group_of(e) == IMAGE for e in known),
         "mixed_no_common": len(known) > 1 and not targets,
-    })
+    }
+
+
+def cmd_targets(a) -> int:
+    emit(analyze_targets(a.files))
     return 0
+
+
+def cmd_formats(_a) -> int:
+    from .formats import export_matrix
+    sys.stdout.write(json.dumps(export_matrix(), indent=1, sort_keys=True) + "\n")
+    return 0
+
+
+def read_files(a, parser) -> list[str]:
+    """Paths from the command line plus, optionally, a NUL-separated list file
+    (--files-from). The list file lets the app pass thousands of paths without
+    hitting the operating system's argument-length limit."""
+    files = list(a.files)
+    if a.files_from:
+        try:
+            raw = Path(a.files_from).read_bytes().decode("utf-8", "surrogateescape")
+        except OSError as e:
+            parser.error(f"can't read the file list: {e.strerror or e}")
+        files += [f for f in raw.split("\0") if f]
+    if not files:
+        parser.error("no files given")
+    return files
 
 
 def cmd_convert(a) -> int:
     opts = Options(quality=a.quality, resolution=a.resolution)
     out = Path(a.out) if a.out else default_output_dir()
-    jobs = run_batch([Path(f) for f in a.files], a.to, opts, emit, out, group_folder=a.folder)
+    jobs = run_batch([Path(f) for f in a.all_files], a.to, opts, emit, out, group_folder=a.folder)
     return 0 if all(j.status in ("done", "skipped") for j in jobs) else 1
 
 
 def cmd_combine(a) -> int:
     from .converters.images import combine_images_to_pdf
-    files = [Path(f) for f in a.files]
+    files = [Path(f) for f in a.all_files]
     out = Path(a.out) if a.out else default_output_dir()
     stem = files[0].stem + " (combined)" if files else "combined"
     tmpdir = Path(tempfile.mkdtemp(prefix="recast-"))
@@ -190,12 +218,17 @@ def main(argv: list[str] | None = None) -> int:
     c.add_argument("--out")
     c.add_argument("--folder", action="store_true",
                    help="put multi-file results (PDF pages, sheets) in one folder")
-    c.add_argument("files", nargs="+")
-    c.set_defaults(fn=cmd_convert)
+    c.add_argument("--files-from", help="file holding NUL-separated input paths")
+    c.add_argument("files", nargs="*")
+    c.set_defaults(fn=cmd_convert, parser=c)
     m = sub.add_parser("combine")
     m.add_argument("--quality", default="balanced", choices=["smaller", "balanced", "best"])
     m.add_argument("--out")
-    m.add_argument("files", nargs="+")
-    m.set_defaults(fn=cmd_combine)
+    m.add_argument("--files-from", help="file holding NUL-separated input paths")
+    m.add_argument("files", nargs="*")
+    m.set_defaults(fn=cmd_combine, parser=m)
+    sub.add_parser("formats").set_defaults(fn=cmd_formats)
     a = p.parse_args(argv)
+    if a.cmd in ("convert", "combine"):
+        a.all_files = read_files(a, a.parser)
     return a.fn(a)
