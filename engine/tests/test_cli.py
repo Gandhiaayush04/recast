@@ -88,3 +88,14 @@ def test_convert_rejects_bad_quality_argument(tmp_path):
     proc = _cli("convert", "--to", "jpg", "--quality", "ultra", str(tmp_path / "x.png"))
     assert proc.returncode != 0
     assert "invalid choice" in proc.stderr
+
+
+def test_convert_out_creates_missing_nested_folder(tmp_path, monkeypatch):
+    """--out into a folder that doesn't exist yet: the engine creates it."""
+    from PIL import Image
+    from recast_engine import cli
+    src = tmp_path / "a.png"
+    Image.new("RGB", (8, 8), "red").save(src)
+    out = tmp_path / "new" / "nested"
+    assert cli.main(["convert", "--to", "jpg", "--out", str(out), str(src)]) == 0
+    assert (out / "a.jpg").is_file()

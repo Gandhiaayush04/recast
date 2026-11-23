@@ -7,7 +7,7 @@ Please include what you found, the steps or a sample file to reproduce it, and w
 ## What Recast is designed to do
 
 - Run completely offline. Recast itself never makes network requests.
-- Only read the files you give it and only write to your Downloads folder.
+- Only read the files you give it and only write to the folder you choose (Downloads by default).
 - Refuse files that try to pull in content from other places on your Mac or the internet.
 - Stop oversized or malformed files before they use up your Mac's memory.
 

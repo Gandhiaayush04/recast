@@ -6,17 +6,22 @@ final class AppModelTests: XCTestCase {
     var dir: URL!
     var engine: FakeEngine!
     var model: AppModel!
+    var defaults: UserDefaults!
+    var suiteName = ""
 
     override func setUp() async throws {
         dir = FileManager.default.temporaryDirectory.appendingPathComponent("recast-tests-\(UUID().uuidString)")
         try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
         engine = FakeEngine()
         engine.onceReply = { _ in targetsReply(["png", "pdf"]) }
-        model = AppModel(engine: engine)
+        suiteName = "recast-tests-\(UUID().uuidString)"
+        defaults = UserDefaults(suiteName: suiteName)!
+        model = AppModel(engine: engine, defaults: defaults)
     }
 
     override func tearDown() async throws {
         try? FileManager.default.removeItem(at: dir)
+        defaults.removePersistentDomain(forName: suiteName)
     }
 
     @discardableResult
@@ -189,6 +194,71 @@ final class AppModelTests: XCTestCase {
         XCTAssertTrue(model.items.isEmpty)
         XCTAssertTrue(model.targets.isEmpty)
         XCTAssertNil(model.selectedTarget)
+    }
+
+    // MARK: output folder
+
+    func testDefaultsToDownloads() {
+        XCTAssertTrue(model.usesDefaultOutputFolder)
+        XCTAssertEqual(model.outputFolder.standardizedFileURL, AppModel.downloads.standardizedFileURL)
+    }
+
+    func testConvertPassesChosenFolderToEngine() async throws {
+        let out = dir.appendingPathComponent("out")
+        try FileManager.default.createDirectory(at: out, withIntermediateDirectories: true)
+        model.setOutputFolder(out)
+        try await startRun(["a.jpg"])
+        let args = engine.streamCalls.last ?? []
+        let i = try XCTUnwrap(args.firstIndex(of: "--out"))
+        XCTAssertEqual(args[i + 1], out.standardizedFileURL.path)
+        XCTAssertFalse(model.usesDefaultOutputFolder)
+    }
+
+    func testCombinePassesChosenFolderToEngine() async throws {
+        engine.onceReply = { _ in targetsReply(["pdf"], combine: true) }
+        model.setOutputFolder(dir)
+        model.add([try makeFile("a.jpg"), try makeFile("b.jpg")]); await settle()
+        model.combineIntoPDF()
+        XCTAssertTrue(engine.streamCalls.last?.contains("--out") ?? false)
+    }
+
+    func testChoiceIsRemembered() {
+        model.setOutputFolder(dir)
+        let again = AppModel(engine: engine, defaults: defaults)
+        XCTAssertEqual(again.outputFolder.standardizedFileURL, dir.standardizedFileURL)
+    }
+
+    func testMissingFolderFallsBackToDownloads() {
+        model.setOutputFolder(dir.appendingPathComponent("gone"))
+        XCTAssertEqual(model.outputFolder.standardizedFileURL, AppModel.downloads.standardizedFileURL)
+    }
+
+    func testUnwritableFolderBlocksTheRunWithAMessage() async throws {
+        try XCTSkipIf(getuid() == 0, "root can write anywhere")
+        let ro = dir.appendingPathComponent("ro")
+        try FileManager.default.createDirectory(at: ro, withIntermediateDirectories: true)
+        try FileManager.default.setAttributes([.posixPermissions: 0o500], ofItemAtPath: ro.path)
+        defer { try? FileManager.default.setAttributes([.posixPermissions: 0o700], ofItemAtPath: ro.path) }
+        model.setOutputFolder(ro)
+        model.add([try makeFile("a.jpg")]); await settle()
+        model.convert(to: "png")
+        XCTAssertFalse(model.isWorking)
+        XCTAssertTrue(engine.streamCalls.isEmpty)
+        XCTAssertNotNil(model.notice)
+    }
+
+    func testVanishedFolderBlocksTheRunWithAMessage() async throws {
+        model.add([try makeFile("a.jpg")]); await settle()
+        model.setOutputFolder(dir.appendingPathComponent("unplugged"))
+        model.convert(to: "png")
+        XCTAssertFalse(model.isWorking)
+        XCTAssertTrue(model.notice?.contains("unplugged") ?? false)
+    }
+
+    func testResetGoesBackToDownloads() {
+        model.setOutputFolder(dir)
+        model.setOutputFolder(nil)
+        XCTAssertTrue(model.usesDefaultOutputFolder)
     }
 
     // MARK: diagnostics

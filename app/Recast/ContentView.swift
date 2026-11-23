@@ -232,8 +232,9 @@ struct StatusCell: View {
 
     private var doneText: String {
         if item.combined { return "In the combined PDF" }
-        if item.outputs.count > 1 { return "\(item.outputs.count) files in Downloads" }
-        return "Saved to Downloads"
+        let folder = model.outputFolderName
+        if item.outputs.count > 1 { return "\(item.outputs.count) files in \(folder)" }
+        return "Saved to \(folder)"
     }
 }
 
@@ -307,6 +308,22 @@ struct ConvertBar: View {
                     .disabled(!model.canConvert)
             }
             .disabled(model.items.isEmpty && !model.isWorking)
+            HStack(spacing: 6) {
+                Image(systemName: "folder").foregroundStyle(.secondary)
+                Text("Save to").foregroundStyle(.secondary)
+                Button(model.outputFolderName) { model.chooseOutputFolder() }
+                    .buttonStyle(.link)
+                    .lineLimit(1)
+                    .truncationMode(.middle)
+                    .frame(maxWidth: 240)
+                    .help(model.outputFolder.path)
+                if !model.usesDefaultOutputFolder {
+                    Button("Reset to Downloads") { model.setOutputFolder(nil) }
+                        .buttonStyle(.link)
+                }
+            }
+            .font(.callout)
+            .disabled(model.isWorking)
         }
         .padding(.horizontal, 20)
         .padding(.vertical, 12)

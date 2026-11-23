@@ -92,6 +92,7 @@ final class EngineClient: EngineRunning {
         env["PYTHONUNBUFFERED"] = "1"
         env["PYTHONNOUSERSITE"] = "1"
         env["PYTHONDONTWRITEBYTECODE"] = "1"
+        env["RECAST_OUTPUT_DIR"] = nil   // the app passes --out explicitly; a stray variable must not redirect output
         return env
     }
 

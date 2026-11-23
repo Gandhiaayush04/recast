@@ -32,7 +32,7 @@ I wanted something better: one free app that lives on my Mac, handles the everyd
 - Drop files on the window, on the Dock icon, or right click a file in Finder and pick **Convert with Recast**.
 - It only shows you formats that actually make sense for the files you dropped.
 - Batches convert in parallel, and every file shows its own progress. If one fails, you get a plain English reason and the rest keep going.
-- Everything lands in your Downloads folder with the same name and the new extension. It never overwrites anything and never touches your originals.
+- Everything lands in your Downloads folder (or any folder you choose with the "Save to" button) with the same name and the new extension. It never overwrites anything and never touches your originals.
 - One quality setting (Smaller, Balanced or Best), plus a resolution option when you're converting video.
 - Turn a bunch of images into one combined PDF, in whatever order you drag them into.
 - Multi page PDFs and multi sheet spreadsheets come out as separate files, or all in one folder if you prefer.
@@ -72,7 +72,7 @@ Formats in the same group convert to each other too, so docx to odt or xlsx to c
 1. Grab `Recast.zip` from the [Releases](https://github.com/Gandhiaayush04/recast/releases) page.
 2. Unzip it and drag `Recast.app` into Applications.
 3. The first time you open it, macOS will block it because I haven't paid for Apple's notarization. Go to System Settings, then Privacy & Security, scroll down to the message about Recast and click **Open Anyway**.
-4. macOS might ask once for access to your Downloads folder. Say yes, since that's where your converted files go.
+4. macOS might ask once for access to the folder your converted files go to (Downloads by default). Say yes.
 
 ### Add the Finder shortcut (optional)
 
@@ -116,3 +116,7 @@ Everything Recast bundles or relies on, and their licenses, is listed in [THIRD_
 ## License
 
 MIT. Copyright (c) 2026 Aayush Gandhi. See [LICENSE](LICENSE).
+
+## Troubleshooting
+
+If a conversion fails unexpectedly, right-click the file and choose **Copy Details**. Recast also keeps a log at `~/Library/Logs/Recast/recast.log` (Help → Show Log in Finder). It stays on your Mac and can contain file names, so check it before sharing.

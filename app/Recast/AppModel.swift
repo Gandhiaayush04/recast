@@ -186,8 +186,66 @@ final class AppModel: ObservableObject {
     private var targetsGeneration = 0
     private var pendingNoticeShown = false
 
-    init(engine: EngineRunning = EngineClient.shared) {
+    // MARK: output folder
+
+    static let outputFolderKey = "outputFolderPath"
+    private let defaults: UserDefaults
+    /// The folder the user picked ("" means the default, Downloads). Remembered across launches.
+    /// (Not sandboxed, so a plain path is enough. If the app is ever sandboxed this needs a security-scoped bookmark.)
+    @Published private(set) var outputFolderPath: String
+
+    static var downloads: URL {
+        FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first
+            ?? FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Downloads")
+    }
+
+    /// The chosen folder, or Downloads when none is set or the chosen one has disappeared.
+    var outputFolder: URL {
+        var isDir: ObjCBool = false
+        if !outputFolderPath.isEmpty,
+           FileManager.default.fileExists(atPath: outputFolderPath, isDirectory: &isDir), isDir.boolValue {
+            return URL(fileURLWithPath: outputFolderPath, isDirectory: true)
+        }
+        return Self.downloads
+    }
+    var outputFolderName: String { outputFolder.lastPathComponent }
+    var usesDefaultOutputFolder: Bool { outputFolder.standardizedFileURL == Self.downloads.standardizedFileURL }
+
+    func setOutputFolder(_ url: URL?) {
+        outputFolderPath = url?.standardizedFileURL.path ?? ""
+        defaults.set(outputFolderPath, forKey: Self.outputFolderKey)
+    }
+
+    func chooseOutputFolder() {
+        let panel = NSOpenPanel()
+        panel.canChooseDirectories = true
+        panel.canChooseFiles = false
+        panel.canCreateDirectories = true
+        panel.allowsMultipleSelection = false
+        panel.directoryURL = outputFolder
+        panel.prompt = "Choose"
+        panel.message = "Choose where converted files are saved"
+        if panel.runModal() == .OK, let url = panel.url { setOutputFolder(url) }
+    }
+
+    /// True when files can be written to the output folder. Otherwise explains why and returns false.
+    private func outputFolderIsUsable() -> Bool {
+        let f = outputFolder
+        // a remembered folder that has gone away (e.g. an unplugged drive): say so instead of silently using Downloads
+        if !outputFolderPath.isEmpty && f.path != URL(fileURLWithPath: outputFolderPath).path {
+            let name = URL(fileURLWithPath: outputFolderPath).lastPathComponent
+            notice = "The folder \u{201C}\(name)\u{201D} isn't available. Choose another folder, or reset to Downloads."
+            return false
+        }
+        if FileManager.default.isWritableFile(atPath: f.path) { return true }
+        notice = "Recast can't save to \u{201C}\(f.lastPathComponent)\u{201D}. Choose another folder."
+        return false
+    }
+
+    init(engine: EngineRunning = EngineClient.shared, defaults: UserDefaults = .standard) {
         self.engine = engine
+        self.defaults = defaults
+        self.outputFolderPath = defaults.string(forKey: Self.outputFolderKey) ?? ""
     }
 
     // MARK: derived
@@ -382,8 +440,9 @@ final class AppModel: ObservableObject {
 
     func convert(to target: String) {
         let files = convertible
-        guard !files.isEmpty, !isWorking, !targetsLoading else { return }
-        var args = ["convert", "--to", target, "--quality", quality.rawValue, "--resolution", resolution.rawValue]
+        guard !files.isEmpty, !isWorking, !targetsLoading, outputFolderIsUsable() else { return }
+        var args = ["convert", "--to", target, "--quality", quality.rawValue, "--resolution", resolution.rawValue,
+                    "--out", outputFolder.path]
         if putInOneFolder { args.append("--folder") }
         args += files.map(\.url.path)
         let ids = Dictionary(uniqueKeysWithValues: files.enumerated().map { ($0.offset, $0.element.id) })
@@ -395,8 +454,8 @@ final class AppModel: ObservableObject {
 
     func combineIntoPDF() {
         let files = convertible
-        guard files.count > 1, !isWorking, !targetsLoading else { return }
-        start(["combine", "--quality", quality.rawValue] + files.map(\.url.path), combining: true) {
+        guard files.count > 1, !isWorking, !targetsLoading, outputFolderIsUsable() else { return }
+        start(["combine", "--quality", quality.rawValue, "--out", outputFolder.path] + files.map(\.url.path), combining: true) {
             self.lastTarget = nil
             self.batchIDs = [:]
         }
