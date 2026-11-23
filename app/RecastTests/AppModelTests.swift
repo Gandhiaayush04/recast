@@ -190,4 +190,88 @@ final class AppModelTests: XCTestCase {
         XCTAssertTrue(model.targets.isEmpty)
         XCTAssertNil(model.selectedTarget)
     }
+
+    // MARK: diagnostics
+
+    func testFailedEventKeepsDetailAndTrace() async throws {
+        try await startRun(["a.jpg"])
+        engine.send(["event": "failed", "id": 0, "message": "Something went wrong converting this file.",
+                     "detail": "ValueError: boom", "trace": "Traceback line"])
+        let item = model.items[0]
+        XCTAssertEqual(model.failureDetails[item.id], "ValueError: boom\n\nTraceback line")
+        let report = model.failureReport(for: item)
+        XCTAssertTrue(report.contains("ValueError: boom"))
+        XCTAssertTrue(report.contains("a.jpg"))
+        XCTAssertTrue(report.contains("contains file names"))
+    }
+
+    func testEarlyExitRecordsEngineStderr() async throws {
+        try await startRun(["a.jpg"])
+        engine.send(["event": "started", "id": 0])
+        engine.handle.stderrTail = "Traceback: ImportError PIL"
+        engine.exit()
+        let d = model.failureDetails[model.items[0].id] ?? ""
+        XCTAssertTrue(d.contains("ImportError PIL"))
+    }
+
+    func testCombineFailureKeepsDetailForCopying() async throws {
+        engine.onceReply = { _ in targetsReply(["pdf"], combine: true) }
+        model.add([try makeFile("a.jpg"), try makeFile("b.jpg")]); await settle()
+        model.combineIntoPDF()
+        engine.send(["event": "failed", "id": 0, "message": "Boom", "detail": "OSError: disk", "trace": "tb"])
+        XCTAssertEqual(model.combineDetail, "OSError: disk\n\ntb")
+    }
+
+    func testRemovingARowDropsItsDetails() async throws {
+        try await startRun(["a.jpg"])
+        engine.send(["event": "failed", "id": 0, "message": "x", "detail": "d"])
+        engine.exit()
+        model.remove(model.items[0])
+        XCTAssertTrue(model.failureDetails.isEmpty)
+    }
+
+    func testRerunClearsOldDetails() async throws {
+        try await startRun(["a.jpg"])
+        engine.send(["event": "failed", "id": 0, "message": "x", "detail": "d"])
+        engine.exit()
+        XCTAssertFalse(model.failureDetails.isEmpty)
+        model.convert(to: "png")
+        XCTAssertTrue(model.failureDetails.isEmpty)
+    }
+}
+
+final class DiagnosticsLogTests: XCTestCase {
+    func testWritesAndRotates() throws {
+        let dir = FileManager.default.temporaryDirectory.appendingPathComponent("recast-log-\(UUID().uuidString)")
+        defer { try? FileManager.default.removeItem(at: dir) }
+        let log = DiagnosticsLog(directory: dir, maxBytes: 200)
+        for i in 0..<30 { log.log("line number \(i) with some padding to grow the file") }
+        log.flush()
+        let names = Set(try FileManager.default.contentsOfDirectory(atPath: dir.path))
+        XCTAssertTrue(names.contains("recast.log"))
+        XCTAssertTrue(names.contains("recast.log.1"))
+        XCTAssertFalse(names.contains("recast.log.3"))
+        let current = try String(contentsOf: log.url, encoding: .utf8)
+        XCTAssertTrue(current.contains("line number 29"))
+    }
+}
+
+final class TailBufferTests: XCTestCase {
+    func testKeepsOnlyTheEndAndNeverStartsMidCharacter() {
+        let t = TailBuffer(limit: 10)
+        t.append(Data(String(repeating: "é", count: 20).utf8))   // 40 bytes, 2 per character
+        XCTAssertFalse(t.text.contains("\u{FFFD}"))
+        XCTAssertTrue(t.text.allSatisfy { $0 == "é" })
+        XCTAssertLessThanOrEqual(t.text.utf8.count, 10)
+    }
+
+    func testDrainCollectsEverythingBeforeEnd() {
+        let pipe = Pipe()
+        let t = TailBuffer()
+        t.drain(pipe.fileHandleForReading)
+        pipe.fileHandleForWriting.write(Data("Traceback: boom".utf8))
+        try? pipe.fileHandleForWriting.close()
+        t.waitForEnd()
+        XCTAssertEqual(t.text, "Traceback: boom")
+    }
 }

@@ -135,6 +135,16 @@ struct FileTable: View {
                 let outs = picked.flatMap(\.outputs)
                 if !outs.isEmpty { Button("Show in Finder") { model.reveal(outs) } }
                 Button("Show Original in Finder") { model.reveal(picked.map(\.url)) }
+                // only offer Copy Details when there is technical detail to copy
+                let failed = picked.filter {
+                    if case .failed = $0.status { return model.failureDetails[$0.id] != nil }
+                    return false
+                }
+                if !failed.isEmpty {
+                    Button(failed.count > 1 ? "Copy Details (\(failed.count) files)" : "Copy Details") {
+                        model.copyDetails(for: failed)
+                    }
+                }
                 Divider()
                 Button("Remove from List") {
                     model.selection = ids
@@ -246,9 +256,15 @@ struct ConvertBar: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             if let note = model.notice ?? model.combineError ?? mixedNote {
-                Label(note, systemImage: model.combineError != nil ? "xmark.circle.fill" : "info.circle")
-                    .font(.callout)
-                    .foregroundStyle(model.combineError != nil ? .red : .secondary)
+                HStack(spacing: 8) {
+                    Label(note, systemImage: model.combineError != nil ? "xmark.circle.fill" : "info.circle")
+                        .font(.callout)
+                        .foregroundStyle(model.combineError != nil ? .red : .secondary)
+                    if model.notice == nil, model.combineError != nil, model.combineDetail != nil {
+                        Button("Copy Details") { model.copyCombineDetails() }
+                            .controlSize(.small)
+                    }
+                }
             }
             HStack(spacing: 20) {
                 FormatPicker()

@@ -4,8 +4,59 @@ import Foundation
 protocol EngineHandle: AnyObject {
     var isRunning: Bool { get }
     func terminate()
+    /// The last few KB the engine wrote to stderr (Python tracebacks end up here).
+    var stderrTail: String { get }
 }
-extension Process: EngineHandle {}
+
+/// Keeps the last `limit` bytes of a stream, filled by a background reader.
+final class TailBuffer {
+    private let limit: Int
+    private var data = Data()
+    private let lock = NSLock()
+    private let drained = DispatchGroup()
+    init(limit: Int = 8192) { self.limit = limit }
+
+    func append(_ d: Data) {
+        lock.lock(); defer { lock.unlock() }
+        data.append(d)
+        if data.count > limit {
+            data = Data(data.suffix(limit))
+            // don't start in the middle of a multi-byte character
+            while let f = data.first, f & 0xC0 == 0x80 { data.removeFirst() }
+        }
+    }
+
+    var text: String {
+        lock.lock(); defer { lock.unlock() }
+        return String(decoding: data, as: UTF8.self).trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+
+    /// Read `fh` on a background thread until it closes, so a chatty engine can never fill the pipe.
+    func drain(_ fh: FileHandle) {
+        drained.enter()
+        DispatchQueue.global(qos: .utility).async { [self] in
+            while true {
+                let d = fh.availableData
+                if d.isEmpty { break }
+                append(d)
+            }
+            drained.leave()
+        }
+    }
+
+    /// Wait (briefly) for the reader to reach end-of-stream, so `text` is complete after an exit.
+    func waitForEnd(timeout: TimeInterval = 0.3) { _ = drained.wait(timeout: .now() + timeout) }
+}
+
+/// A real engine process plus what it has said on stderr.
+final class EngineProcess: EngineHandle {
+    let process: Process
+    let stderr: TailBuffer
+    init(process: Process, stderr: TailBuffer) { self.process = process; self.stderr = stderr }
+    var isRunning: Bool { process.isRunning }
+    func terminate() { process.terminate() }
+    var stderrTail: String { stderr.text }
+}
 
 /// What AppModel needs from the engine. EngineClient is the real thing; tests supply a fake.
 protocol EngineRunning {
@@ -24,7 +75,9 @@ final class EngineClient: EngineRunning {
     let enginePath: URL
 
     private init() {
-        let res = Bundle.main.resourceURL!
+        // resourceURL is only nil for a broken bundle; fall back so we fail with a normal
+        // "engine couldn't start" message instead of crashing.
+        let res = Bundle.main.resourceURL ?? Bundle.main.bundleURL
         pythonURL = res.appendingPathComponent("python/bin/python3")
         enginePath = res.appendingPathComponent("engine")
     }
@@ -42,24 +95,36 @@ final class EngineClient: EngineRunning {
         return env
     }
 
-    private func makeProcess(_ args: [String]) -> (Process, Pipe) {
+    /// Build and start an engine process. stderr is captured into the returned buffer.
+    /// If the process can't start, every pipe is closed so nothing leaks, and the error is logged.
+    private func launch(_ args: [String]) throws -> (Process, Pipe, TailBuffer) {
         let p = Process()
         p.executableURL = pythonURL
         p.arguments = ["-m", "recast_engine"] + args
         p.environment = environment()
         let out = Pipe()
+        let err = Pipe()
         p.standardOutput = out
-        p.standardError = FileHandle.nullDevice
+        p.standardError = err
         p.standardInput = FileHandle.nullDevice
-        return (p, out)
+        do {
+            try p.run()
+        } catch {
+            DiagnosticsLog.shared.log("couldn't start the engine (\(args.first ?? "?")): \(error.localizedDescription)")
+            for h in [out.fileHandleForReading, out.fileHandleForWriting,
+                      err.fileHandleForReading, err.fileHandleForWriting] { try? h.close() }
+            throw error
+        }
+        let tail = TailBuffer()
+        tail.drain(err.fileHandleForReading)
+        return (p, out, tail)
     }
 
     /// Run a short engine command (status / targets) and return its last JSON object.
     /// Output is drained while the process runs (no pipe-buffer deadlock) and a
     /// watchdog stops it after `timeout` seconds.
     func runOnce(_ args: [String], timeout: TimeInterval = 30) async throws -> [String: Any] {
-        let (p, out) = makeProcess(args)
-        try p.run()
+        let (p, out, tail) = try launch(args)
         let watchdog = DispatchWorkItem { if p.isRunning { p.terminate() } }
         DispatchQueue.global().asyncAfter(deadline: .now() + timeout, execute: watchdog)
 
@@ -67,6 +132,7 @@ final class EngineClient: EngineRunning {
             DispatchQueue.global(qos: .userInitiated).async {
                 let d = out.fileHandleForReading.readDataToEndOfFile()
                 p.waitUntilExit()
+                tail.waitForEnd()
                 cont.resume(returning: d)
             }
         }
@@ -74,6 +140,7 @@ final class EngineClient: EngineRunning {
         let line = String(decoding: data, as: UTF8.self)
             .split(separator: "\n").last.map(String.init) ?? ""
         guard let obj = try? JSONSerialization.jsonObject(with: Data(line.utf8)) as? [String: Any] else {
+            DiagnosticsLog.shared.log("engine \(args.first ?? "?") gave no usable answer. stderr: \(tail.text)")
             throw NSError(domain: "Recast", code: 1, userInfo: [
                 NSLocalizedDescriptionKey: "Recast's conversion engine didn't respond."])
         }
@@ -86,8 +153,8 @@ final class EngineClient: EngineRunning {
     func stream(_ args: [String],
                 onEvent: @escaping ([String: Any]) -> Void,
                 onExit: @escaping () -> Void) throws -> EngineHandle {
-        let (p, out) = makeProcess(args)
-        try p.run()
+        let (p, out, tail) = try launch(args)
+        let handle = EngineProcess(process: p, stderr: tail)
         DispatchQueue(label: "recast.engine.stream").async {
             let fh = out.fileHandleForReading
             var buf = Data()
@@ -107,9 +174,13 @@ final class EngineClient: EngineRunning {
                 DispatchQueue.main.async { onEvent(obj) }
             }
             p.waitUntilExit()
+            tail.waitForEnd()
+            if p.terminationStatus != 0 {
+                DiagnosticsLog.shared.log("engine \(args.first ?? "?") exited with status \(p.terminationStatus). stderr: \(tail.text)")
+            }
             DispatchQueue.main.async { onExit() }
         }
-        return p
+        return handle
     }
 
     /// Install a missing engine with Homebrew, streaming its output line by line.

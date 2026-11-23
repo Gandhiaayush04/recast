@@ -6,6 +6,7 @@ import Foundation
 final class FakeHandle: EngineHandle {
     var isRunning = true
     var terminated = false
+    var stderrTail = ""
     func terminate() { terminated = true; isRunning = false }
 }
 

@@ -57,6 +57,10 @@ struct RecastApp: App {
                 Button("Sort by Name") { model.sortAZ() }
                     .disabled(model.items.count < 2 || model.isWorking)
             }
+            CommandGroup(after: .help) {
+                Divider()
+                Button("Show Log in Finder") { DiagnosticsLog.shared.revealInFinder() }
+            }
             CommandGroup(after: .toolbar) {
                 Picker("Appearance", selection: $appearance) {
                     ForEach(Appearance.allCases) { Text($0.label).tag($0) }
@@ -64,6 +68,11 @@ struct RecastApp: App {
                 Divider()
             }
         }
+    }
+
+    init() {
+        let v = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "?"
+        DiagnosticsLog.shared.log("Recast \(v) launched on macOS \(ProcessInfo.processInfo.operatingSystemVersionString)")
     }
 }
 

@@ -168,6 +168,9 @@ final class AppModel: ObservableObject {
     @Published var selectedTarget: String?          // the format chosen in "Convert to"
     @Published var combinePDF = false               // "Combine into one PDF" checkbox
     @Published var selection = Set<UUID>()
+    /// Technical details (traceback, engine stderr) for failed rows, shown only via "Copy Details".
+    @Published private(set) var failureDetails: [UUID: String] = [:]
+    @Published private(set) var combineDetail: String?
 
     // Install sheet
     @Published var installing: String?
@@ -214,6 +217,7 @@ final class AppModel: ObservableObject {
 
     func removeSelected() {
         guard !isWorking, !selection.isEmpty else { return }
+        for id in selection { failureDetails[id] = nil }
         items.removeAll { selection.contains($0.id) }
         selection.removeAll()
         Task { await refreshTargets() }
@@ -284,6 +288,7 @@ final class AppModel: ObservableObject {
 
     func remove(_ item: FileItem) {
         guard !isWorking else { return }
+        failureDetails[item.id] = nil
         items.removeAll { $0.id == item.id }
         selection.remove(item.id)
         Task { await refreshTargets() }
@@ -300,6 +305,8 @@ final class AppModel: ObservableObject {
         mixedNoCommon = false
         combinedOutput = nil
         combineError = nil
+        failureDetails = [:]
+        combineDetail = nil
         lastTarget = nil
         notice = nil
         wasStopped = false
@@ -326,6 +333,8 @@ final class AppModel: ObservableObject {
     }
 
     private func resetResults() {
+        failureDetails = [:]
+        combineDetail = nil
         combinedOutput = nil
         combineError = nil
         wasStopped = false
@@ -395,6 +404,7 @@ final class AppModel: ObservableObject {
 
     private func start(_ args: [String], combining: Bool, prepare: () -> Void) {
         cancelled = false
+        DiagnosticsLog.shared.log("start \(args.first ?? "?") with \(convertible.count) file(s)")
         do {
             running = try engine.stream(args, onEvent: { [weak self] ev in
                 self?.handle(ev, combining: combining)
@@ -413,14 +423,25 @@ final class AppModel: ObservableObject {
     }
 
     private func finish() {
+        let stderr = running?.stderrTail ?? ""
+        var stopped = 0
         for i in items.indices {
             switch items[i].status {
             case .queued, .converting:
-                items[i].status = cancelled
-                    ? .ready
-                    : .failed("The conversion stopped unexpectedly.", missingEngine: nil)
+                if cancelled {
+                    items[i].status = .ready
+                } else {
+                    items[i].status = .failed("The conversion stopped unexpectedly.", missingEngine: nil)
+                    failureDetails[items[i].id] = "The engine exited before finishing this file.\n\nEngine output:\n"
+                        + (stderr.isEmpty ? "(nothing)" : stderr)
+                    stopped += 1
+                }
             default: break
             }
+        }
+        // one log entry per crash, not one per file
+        if stopped > 0 {
+            DiagnosticsLog.shared.log("engine stopped unexpectedly, \(stopped) file(s) affected. stderr: \(stderr)")
         }
         wasStopped = cancelled
         cancelled = false
@@ -458,6 +479,8 @@ final class AppModel: ObservableObject {
                 }
             case "failed":
                 combineError = ev["message"] as? String ?? "Couldn't combine these images."
+                combineDetail = Self.detailText(from: ev)
+                DiagnosticsLog.shared.log("combine failed: \(combineError ?? ""). \(combineDetail ?? "")")
                 for i in rows { items[i].status = .ready }
             default: break
             }
@@ -478,8 +501,49 @@ final class AppModel: ObservableObject {
             let missing = ev["missing_engine"] as? String
             items[idx].status = .failed(ev["message"] as? String ?? "Couldn't convert this file.", missingEngine: missing)
             if let m = missing, !missingEngines.contains(m) { missingEngines.append(m) }
+            if let d = Self.detailText(from: ev) { failureDetails[uid] = d }
+            DiagnosticsLog.shared.log("\(items[idx].name): failed. \(ev["message"] as? String ?? ""). \(Self.detailText(from: ev) ?? "")")
         default: break
         }
+    }
+
+    /// Joins the engine's `detail` and `trace` fields, or nil when it sent neither.
+    static func detailText(from ev: [String: Any]) -> String? {
+        let parts = [ev["detail"] as? String, ev["trace"] as? String].compactMap { $0 }.filter { !$0.isEmpty }
+        return parts.isEmpty ? nil : parts.joined(separator: "\n\n")
+    }
+
+    /// Everything useful for a bug report about one failed row.
+    func failureReport(for item: FileItem) -> String {
+        var message = "Couldn't convert this file."
+        if case .failed(let m, _) = item.status { message = m }
+        return report(file: item.name, message: message, detail: failureDetails[item.id])
+    }
+
+    private func report(file: String?, message: String, detail: String?) -> String {
+        let v = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "?"
+        var lines = ["Recast \(v), macOS \(ProcessInfo.processInfo.operatingSystemVersionString)"]
+        if let file { lines.append("File: \(file)") }
+        lines.append("Message: \(message)")
+        lines.append("Details: \(detail ?? "(none)")")
+        lines.append("")
+        lines.append("Note: this text contains file names. Check it before sharing.")
+        return lines.joined(separator: "\n")
+    }
+
+    /// Copies one report per failed row (several rows are separated by a divider line).
+    func copyDetails(for items: [FileItem]) {
+        let text = items.map(failureReport(for:)).joined(separator: "\n\n----------\n\n")
+        copyToPasteboard(text)
+    }
+
+    func copyCombineDetails() {
+        copyToPasteboard(report(file: nil, message: combineError ?? "Couldn't combine these images.", detail: combineDetail))
+    }
+
+    private func copyToPasteboard(_ text: String) {
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString(text, forType: .string)
     }
 
     func cancel() {

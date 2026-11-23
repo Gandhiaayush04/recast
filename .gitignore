@@ -19,7 +19,7 @@ engine/tests/fixtures/
 demo/
 shot-*.command
 shot-log.txt
-diag*
+/diag*
 publish-log.txt
 update-log.txt
 

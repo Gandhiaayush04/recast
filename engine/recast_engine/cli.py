@@ -16,6 +16,7 @@ import shutil
 import sys
 import tempfile
 import threading
+import traceback
 from pathlib import Path
 
 from . import converters  # noqa: F401  (registers all converters)
@@ -82,7 +83,7 @@ def cmd_combine(a) -> int:
         emit({"event": "failed", "id": 0, "message": e.message, "missing_engine": e.missing_engine})
     except Exception as e:
         emit({"event": "failed", "id": 0, "message": "Something went wrong combining these images.",
-              "detail": f"{type(e).__name__}: {e}"})
+              "detail": f"{type(e).__name__}: {e}", "trace": traceback.format_exc(limit=5)})
     finally:
         shutil.rmtree(tmpdir, ignore_errors=True)
     emit({"event": "batch_done", "ok": 0, "failed": 1})
