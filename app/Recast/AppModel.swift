@@ -213,12 +213,22 @@ final class AppModel: ObservableObject {
         }
         return Self.downloads
     }
-    var outputFolderName: String { outputFolder.lastPathComponent }
-    var usesDefaultOutputFolder: Bool { outputFolder.standardizedFileURL == Self.downloads.standardizedFileURL }
+    /// The name shown in "Save to". A remembered folder that has gone away keeps its name,
+    /// so the user can see which one is missing (and gets the Reset button).
+    var outputFolderName: String {
+        outputFolderPath.isEmpty ? outputFolder.lastPathComponent : URL(fileURLWithPath: outputFolderPath).lastPathComponent
+    }
+    var usesDefaultOutputFolder: Bool {
+        outputFolderPath.isEmpty || URL(fileURLWithPath: outputFolderPath).standardizedFileURL == Self.downloads.standardizedFileURL
+    }
+    /// Where the last run wrote its files, for the rows' "Saved to …" text.
+    @Published private(set) var lastRunFolderName: String?
+    private var noticeIsFolderProblem = false
 
     func setOutputFolder(_ url: URL?) {
         outputFolderPath = url?.standardizedFileURL.path ?? ""
         defaults.set(outputFolderPath, forKey: Self.outputFolderKey)
+        if noticeIsFolderProblem { notice = nil; noticeIsFolderProblem = false }
     }
 
     func chooseOutputFolder() {
@@ -240,10 +250,12 @@ final class AppModel: ObservableObject {
         if !outputFolderPath.isEmpty && f.path != URL(fileURLWithPath: outputFolderPath).path {
             let name = URL(fileURLWithPath: outputFolderPath).lastPathComponent
             notice = "The folder \u{201C}\(name)\u{201D} isn't available. Choose another folder, or reset to Downloads."
+            noticeIsFolderProblem = true
             return false
         }
         if FileManager.default.isWritableFile(atPath: f.path) { return true }
         notice = "Recast can't save to \u{201C}\(f.lastPathComponent)\u{201D}. Choose another folder."
+        noticeIsFolderProblem = true
         return false
     }
 
@@ -253,8 +265,16 @@ final class AppModel: ObservableObject {
         self.outputFolderPath = defaults.string(forKey: Self.outputFolderKey) ?? ""
         Self.sweepStaleListFiles()
         if FormatMatrix.shared.isEmpty {
-            engineError = "Recast's format list is missing. Please reinstall Recast."
+            engineError = Self.formatListMissing
         }
+    }
+
+    static let formatListMissing = "Recast's format list is missing. Please reinstall Recast."
+    static let listFileFailed = "Recast couldn't prepare the file list."
+
+    /// Clears the engine banner, except for a missing format list, which no engine check can fix.
+    private func clearEngineError() {
+        engineError = FormatMatrix.shared.isEmpty ? Self.formatListMissing : nil
     }
 
     /// Removes file-list temp files left behind by a crash or force quit (older than an hour).
@@ -323,9 +343,9 @@ final class AppModel: ObservableObject {
             let s = try await engine.runOnce(["status"], timeout: 30)
             let engines = s["engines"] as? [String: Bool] ?? [:]
             missingEngines = ["ffmpeg", "libreoffice"].filter { engines[$0] == false }
-            engineError = nil
+            clearEngineError()
         } catch {
-            engineError = "Recast's conversion engine couldn't start."
+            engineError = FormatMatrix.shared.isEmpty ? Self.formatListMissing : "Recast's conversion engine couldn't start."
         }
     }
 
@@ -387,7 +407,10 @@ final class AppModel: ObservableObject {
         failureDetails = [:]
         combineDetail = nil
         lastTarget = nil
+        lastRunFolderName = nil
         notice = nil
+        noticeIsFolderProblem = false
+        if engineError == Self.listFileFailed { engineError = nil }
         wasStopped = false
     }
 
@@ -426,6 +449,7 @@ final class AppModel: ObservableObject {
     /// Works out the "Convert to" choices from the file list. Pure lookup, so it's instant:
     /// no engine process is started for it.
     func refreshTargets() {
+        if engineError == Self.listFileFailed { engineError = nil }   // a list change is a fresh start
         guard !items.isEmpty else {
             targets = []; canCombinePDF = false; mixedNoCommon = false; selectedTarget = nil
             return
@@ -477,7 +501,7 @@ final class AppModel: ObservableObject {
         for f in files { data.append(Data(f.url.path.utf8)); data.append(0) }
         // created private (owner-only) from the start; it holds the user's file paths
         guard FileManager.default.createFile(atPath: url.path, contents: data, attributes: [.posixPermissions: 0o600]) else {
-            engineError = "Recast couldn't prepare the file list."
+            engineError = Self.listFileFailed
             DiagnosticsLog.shared.log("couldn't write the file list at \(url.path)")
             return nil
         }
@@ -504,7 +528,9 @@ final class AppModel: ObservableObject {
             removeListFile()
             return
         }
-        engineError = nil
+        clearEngineError()
+        lastRunFolderName = outputFolder.lastPathComponent
+        noticeIsFolderProblem = false
         // only touch previous results once the engine is actually running
         resetResults()
         prepare()
@@ -653,6 +679,7 @@ final class AppModel: ObservableObject {
             while p.isRunning && Date() < deadline { usleep(50_000) }
         }
         if let b = installProcess, b.isRunning { b.terminate() }
+        removeListFile()   // the app may exit before finish() runs; don't leave the paths on disk
     }
 
     // MARK: Finder

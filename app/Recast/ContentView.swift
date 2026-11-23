@@ -232,7 +232,7 @@ struct StatusCell: View {
 
     private var doneText: String {
         if item.combined { return "In the combined PDF" }
-        let folder = model.outputFolderName
+        let folder = model.lastRunFolderName ?? model.outputFolderName
         if item.outputs.count > 1 { return "\(item.outputs.count) files in \(folder)" }
         return "Saved to \(folder)"
     }

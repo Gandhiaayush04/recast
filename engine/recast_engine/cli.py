@@ -5,8 +5,13 @@ object per line (JSON Lines) so the app can show live progress.
 
   python -m recast_engine status
   python -m recast_engine targets FILE...
-  python -m recast_engine convert --to EXT [--quality Q] [--resolution R] [--out DIR] FILE...
-  python -m recast_engine combine [--out DIR] FILE...
+  python -m recast_engine convert --to EXT [--quality Q] [--resolution R] [--out DIR] [--folder]
+                                 [--files-from LIST] [FILE...]
+  python -m recast_engine combine [--quality Q] [--out DIR] [--files-from LIST] [FILE...]
+  python -m recast_engine formats      (the conversion matrix as JSON; source of the app's formats.json)
+
+--files-from LIST reads NUL-separated paths from a file. The app always uses it, so
+huge drops never hit the command-line length limit.
 """
 from __future__ import annotations
 

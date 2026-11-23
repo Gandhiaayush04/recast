@@ -50,7 +50,7 @@ struct FormatMatrix {
 
     func normalize(_ ext: String) -> String {
         var e = ext.lowercased()
-        if e.hasPrefix(".") { e.removeFirst() }
+        while e.hasPrefix(".") { e.removeFirst() }   // like Python lstrip(".")
         return aliases[e] ?? e
     }
 

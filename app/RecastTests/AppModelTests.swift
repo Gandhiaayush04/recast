@@ -212,6 +212,21 @@ final class AppModelTests: XCTestCase {
         XCTAssertNil(model.engineError)
     }
 
+    func testListFileErrorClearsWhenTheListChanges() async throws {
+        model.engineError = AppModel.listFileFailed
+        model.add([try makeFile("a.jpg")])
+        XCTAssertNil(model.engineError)
+    }
+
+    func testQuitRemovesTheListFile() async throws {
+        try await startRun(["a.jpg"])
+        let args = engine.streamCalls.last ?? []
+        let list = args[try XCTUnwrap(args.firstIndex(of: "--files-from")) + 1]
+        engine.handle.isRunning = false
+        model.shutdown()
+        XCTAssertFalse(FileManager.default.fileExists(atPath: list))
+    }
+
     // MARK: output folder
 
     func testDefaultsToDownloads() {
@@ -268,6 +283,38 @@ final class AppModelTests: XCTestCase {
         model.convert(to: "png")
         XCTAssertFalse(model.isWorking)
         XCTAssertTrue(model.notice?.contains("unplugged") ?? false)
+    }
+
+    func testVanishedFolderStillShowsItsNameAndOffersReset() {
+        model.setOutputFolder(dir.appendingPathComponent("unplugged"))
+        XCTAssertEqual(model.outputFolderName, "unplugged")
+        XCTAssertFalse(model.usesDefaultOutputFolder)
+    }
+
+    func testPickingANewFolderClearsTheFolderNotice() async throws {
+        model.add([try makeFile("a.jpg")])
+        model.setOutputFolder(dir.appendingPathComponent("unplugged"))
+        model.convert(to: "png")
+        XCTAssertNotNil(model.notice)
+        model.setOutputFolder(dir)
+        XCTAssertNil(model.notice)
+    }
+
+    func testRowsKeepTheFolderTheyWereSavedTo() async throws {
+        let out = dir.appendingPathComponent("Out")
+        try FileManager.default.createDirectory(at: out, withIntermediateDirectories: true)
+        model.setOutputFolder(out)
+        try await startRun(["a.jpg"])
+        engine.exit()
+        model.setOutputFolder(nil)
+        XCTAssertEqual(model.lastRunFolderName, "Out")
+    }
+
+    func testClearRemovesTheListFileBanner() async throws {
+        model.add([try makeFile("a.jpg")])
+        model.engineError = AppModel.listFileFailed
+        model.clear()
+        XCTAssertNil(model.engineError)
     }
 
     func testResetGoesBackToDownloads() {

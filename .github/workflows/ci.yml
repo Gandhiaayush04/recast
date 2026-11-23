@@ -18,7 +18,7 @@ jobs:
       - run: pip install -r engine/requirements-dev.txt
       - run: brew install ffmpeg
       # LibreOffice is large and slow to install; its tests skip themselves when it's absent.
-      - run: python -m pytest engine/tests -m "not slow"
+      - run: python -m pytest tests -m "not slow"
         working-directory: engine
 
   app:

@@ -37,6 +37,7 @@ final class FormatMatrixTests: XCTestCase {
         let m = FormatMatrix.shared
         XCTAssertEqual(m.normalize("JPEG"), "jpg")
         XCTAssertEqual(m.normalize(".heif"), "heic")
+        XCTAssertEqual(m.normalize("..jpg"), "jpg")   // matches Python's lstrip(".")
         XCTAssertEqual(m.group(of: "m4v"), "video")
         XCTAssertNil(m.group(of: "xyz"))
     }
