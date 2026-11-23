@@ -15,8 +15,8 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pillow-heif==1.8.1", "pytest==9.1.1"]
-test = ["pytest==9.1.1"]
+dev = ["pillow-heif==1.8.1", "pytest==9.2.0"]
+test = ["pytest==9.2.0"]
 
 [tool.setuptools]
 packages = ["recast_engine", "recast_engine.converters"]
