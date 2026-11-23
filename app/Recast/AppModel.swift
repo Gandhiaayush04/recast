@@ -174,12 +174,18 @@ final class AppModel: ObservableObject {
     @Published var installLog: [String] = []
     @Published var installFinished: Bool?
 
-    private var running: Process?
+    private let engine: EngineRunning
+    private var running: EngineHandle?
     private var installProcess: Process?
     private var batchIDs: [Int: UUID] = [:]
     private var pendingAdds: [URL] = []
     private var cancelled = false
     private var targetsGeneration = 0
+    private var pendingNoticeShown = false
+
+    init(engine: EngineRunning = EngineClient.shared) {
+        self.engine = engine
+    }
 
     // MARK: derived
 
@@ -231,7 +237,7 @@ final class AppModel: ObservableObject {
 
     func checkEngines() async {
         do {
-            let s = try await EngineClient.shared.runOnce(["status"])
+            let s = try await engine.runOnce(["status"], timeout: 30)
             let engines = s["engines"] as? [String: Bool] ?? [:]
             missingEngines = ["ffmpeg", "libreoffice"].filter { engines[$0] == false }
             engineError = nil
@@ -245,6 +251,7 @@ final class AppModel: ObservableObject {
     func add(_ urls: [URL]) {
         if isWorking {             // don't disturb a running conversion; add when it finishes
             pendingAdds += urls
+            pendingNoticeShown = true
             notice = "Files will be added when the current conversion finishes."
             return
         }
@@ -339,7 +346,7 @@ final class AppModel: ObservableObject {
         targetsLoading = true
         let paths = items.map(\.url.path)
         do {
-            let r = try await EngineClient.shared.runOnce(["targets"] + paths)
+            let r = try await engine.runOnce(["targets"] + paths, timeout: 30)
             guard gen == targetsGeneration else { return }   // a newer request superseded this one
             let t = r["targets"] as? [[String: Any]] ?? []
             targets = t.compactMap {
@@ -389,7 +396,7 @@ final class AppModel: ObservableObject {
     private func start(_ args: [String], combining: Bool, prepare: () -> Void) {
         cancelled = false
         do {
-            running = try EngineClient.shared.stream(args, onEvent: { [weak self] ev in
+            running = try engine.stream(args, onEvent: { [weak self] ev in
                 self?.handle(ev, combining: combining)
             }, onExit: { [weak self] in
                 self?.finish()
@@ -425,9 +432,10 @@ final class AppModel: ObservableObject {
             let urls = pendingAdds
             pendingAdds = []
             add(urls)
-        } else if notice == "Files will be added when the current conversion finishes." {
+        } else if pendingNoticeShown {
             notice = nil
         }
+        pendingNoticeShown = false
     }
 
     private func handle(_ ev: [String: Any], combining: Bool) {

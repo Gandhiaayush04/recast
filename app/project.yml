@@ -57,3 +57,23 @@ targets:
         basedOnDependencyAnalysis: false
         script: |
           "${PROJECT_DIR}/scripts/embed_engine.sh"
+  RecastTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: RecastTests
+    dependencies:
+      - target: Recast
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: com.gandhiaayush.recast.tests
+        CODE_SIGN_IDENTITY: "-"
+schemes:
+  Recast:
+    build:
+      targets:
+        Recast: all
+    test:
+      targets:
+        - RecastTests

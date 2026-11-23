@@ -3,6 +3,12 @@
 # into Recast.app/Contents/Resources before the app is code-signed.
 set -euo pipefail
 
+# Unit-test and CI builds don't need the bundled Python; skip the embed there.
+if [ "${SKIP_ENGINE_EMBED:-0}" = "1" ]; then
+  echo "SKIP_ENGINE_EMBED=1: not embedding the engine"
+  exit 0
+fi
+
 ROOT="${PROJECT_DIR}/.."                       # .../Recast
 RES="${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 PY_SRC="${ROOT}/build/python"

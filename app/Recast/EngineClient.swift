@@ -1,8 +1,23 @@
 import Foundation
 
+/// A running engine process, as far as the app cares. `Process` conforms, and tests use a fake.
+protocol EngineHandle: AnyObject {
+    var isRunning: Bool { get }
+    func terminate()
+}
+extension Process: EngineHandle {}
+
+/// What AppModel needs from the engine. EngineClient is the real thing; tests supply a fake.
+protocol EngineRunning {
+    func runOnce(_ args: [String], timeout: TimeInterval) async throws -> [String: Any]
+    func stream(_ args: [String],
+                onEvent: @escaping ([String: Any]) -> Void,
+                onExit: @escaping () -> Void) throws -> EngineHandle
+}
+
 /// Runs the bundled Python conversion engine and turns its JSON-lines output
 /// into events. The engine lives in Recast.app/Contents/Resources.
-final class EngineClient {
+final class EngineClient: EngineRunning {
     static let shared = EngineClient()
 
     let pythonURL: URL
@@ -70,7 +85,7 @@ final class EngineClient {
     /// delivered last, after the final event.
     func stream(_ args: [String],
                 onEvent: @escaping ([String: Any]) -> Void,
-                onExit: @escaping () -> Void) throws -> Process {
+                onExit: @escaping () -> Void) throws -> EngineHandle {
         let (p, out) = makeProcess(args)
         try p.run()
         DispatchQueue(label: "recast.engine.stream").async {
