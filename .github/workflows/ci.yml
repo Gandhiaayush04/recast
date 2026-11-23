@@ -7,7 +7,7 @@ on:
 jobs:
   engine:
     name: Engine tests (Python)
-    runs-on: macos-14
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -23,7 +23,7 @@ jobs:
 
   app:
     name: App tests (Swift)
-    runs-on: macos-14
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
       - run: brew install xcodegen
